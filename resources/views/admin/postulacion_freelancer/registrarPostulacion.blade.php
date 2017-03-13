@@ -7,7 +7,7 @@
     <!-- P. SIMPLE -->
       <div class="form-group col-md-12">
         <label for="" class="control-label">Propuesta Simple</label>
-          <textarea type="text" class="form-control" id="p_simple" placeholder="Descripción..."></textarea>
+          <textarea type="text" class="form-control" id="propuesta_simple" placeholder="Descripción..."></textarea>
       </div>
 
     <!-- PRECIO -->
@@ -19,16 +19,16 @@
     <!-- P. EXTENSA -->
       <div class="form-group col-md-12">
         <label for="" class="control-label">Propuesta Extensa</label>
-          <textarea type="text" class="form-control" id="p_extensa" placeholder="Descripción..."></textarea>
+          <textarea type="text" class="form-control" id="propuesta_extensa" placeholder="Descripción..."></textarea>
       </div>
 
     <!-- HABILIDADES REQUERIDAS -->
       <div class=" form-group col-md-12">    
         <label for="" class="control-label">Recursos Necesarios</label>
         <div class="input-group input-group-sm">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" id="setRec">
             <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-flat">Agregar</button>
+              <button type="button" class="btn btn-info btn-flat" onclick="addItemRec('.divRecursos','#setRec','#recursos');">Agregar</button>
             </span>
         </div>
       </div>
@@ -46,8 +46,8 @@
             <!-- /.box-tools -->
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
-            The body of the box
+          <div class="box-body divRecursos">
+          <input type="hidden" name="recursos" id="recursos">
           </div>
           <!-- /.box-body -->
         </div>
@@ -63,7 +63,7 @@
     <!-- SERVICIOS ADICIONALES -->
       <div class="form-group col-md-12">
         <label for="" class="control-label">Servicios Adicionales</label>
-          <input type="text" class="form-control" id="precio" placeholder="">
+          <input type="text" class="form-control" id="servicios_adicionales" placeholder="">
       </div>
 
 
@@ -71,9 +71,9 @@
       <div class="form-group col-md-12">
         <label class="control-label">Estimación de Tiempo</label>
           <div class=" input-group">
-            <input autocomplete="off" type="text" class="form-control" aria-label="..." >
+            <input autocomplete="off" type="text" class="form-control" aria-label="..." id="cantidad_tiempo">
             <div class="input-group-btn">
-              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;">
+              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;" id="select_tiempo">
                 <option selected="" value="value1">Días</option> 
                 <option value="value2">Semanas</option>
                 <option value="value3">Meses</option>>
@@ -89,13 +89,7 @@
 <script src="admin/js/validator.js"></script>
 
 <script type="text/javascript">
-$('#myForm').validator().on('submit', function (e) {
-  if (e.isDefaultPrevented()) {
-    alert('1');
-  } else {
-    alert('2');
-  }
-});
+
       //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
@@ -111,4 +105,14 @@ $('#myForm').validator().on('submit', function (e) {
       checkboxClass: 'icheckbox_flat-green',
       radioClass: 'iradio_flat-green'
     });
+
+   var recursosArray='';
+   function addItemRec(div,inputGet,inputSet){  
+    if($(inputGet).val()!=''){
+      $(div).append('<small class="label pull-left bg-yellow" style="margin-right: 5px;">'+$(inputGet).val()+'</small>');   
+        recursosArray+= $(inputGet).val()+',';
+        $(inputSet).val(recursosArray);     
+        $(inputGet).val('');
+    }
+   }
 </script>

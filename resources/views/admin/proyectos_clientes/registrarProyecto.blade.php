@@ -143,13 +143,6 @@
 
 <script type="text/javascript">
 
-$('#myForm').validator().on('submit', function (e) {
-  if (e.isDefaultPrevented()) {
-    alert('1');
-  } else {
-    alert('2');
-  }
-});
       //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',

@@ -89,28 +89,28 @@ $(document).ready(function() {
 } );
 
 
- $.ajax({
+$.ajax({
  		method: 'GET',
         url: "https://apiwebfreelance-em645jn.c9users.io/public/proyectos/getProyectos/1",
         async: false,
-        dataType : "json",       
-    }).done(function (result) {
-    	var tbody='<tr>';
-    	var acciones='<span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
+    dataType : "json",       
+}).done(function (result) {
+	var tbody='<tr>';
+	var acciones='<span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
 
-    	acciones+=' <span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
-			$.each(result.data, function( i, value ) {
-		  			tbody+='<td>'+result.data[i].titulo+'</td>';
-	                tbody+='<td>'+result.data[i].descripcion+'</td>';
-	                tbody+='<td>'+result.data[i].rango+'</td>';
-	                tbody+='<td>'+result.data[i].plazo+'</td>';
-	                tbody+='<td class="text-center">'+acciones+'</td>';
-	                tbody+='</tr>';
-			});		
+	acciones+=' <span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
+		$.each(result.data, function( i, value ) {
+	  			tbody+='<td>'+result.data[i].titulo+'</td>';
+                tbody+='<td>'+result.data[i].descripcion+'</td>';
+                tbody+='<td>'+result.data[i].rango+'</td>';
+                tbody+='<td>'+result.data[i].plazo+'</td>';
+                tbody+='<td class="text-center">'+acciones+'</td>';
+                tbody+='</tr>';
+		});		
 
-        	$('#datatable > tbody').append(tbody);
-	
-	});
+    	$('#datatable > tbody').append(tbody);
+
+});
 
 
 	function registrar(){

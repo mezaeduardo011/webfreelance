@@ -31,7 +31,6 @@
                 </div>
 
                 <div style="width:30%; margin-left: 30%;margin-top:1%">
-                <button type="button" class="btn btn-block btn-primary btn-sm" onclick="registrar()">Registrar</button>
                 </div>
 
                 <div class="box-body">
@@ -40,7 +39,7 @@
 			              <h3 class="box-title">Data Table With Full Features</h3>
 			            </div>                 
 			            <div class="box-body">
-			              <table id="example1" class="table table-bordered table-striped">
+			              <table id="datatable" class="table table-bordered table-striped">
 			                <thead>
 				                <tr>
 				                  <th>Título</th>
@@ -51,15 +50,6 @@
 				                </tr>
 			                </thead>
 			                <tbody>
-				                <tr>
-				                  <td>Trident</td>
-				                  <td>Internet
-				                    Explorer 4.0
-				                  </td>
-				                  <td>Win 95+</td>
-				                  <td> 4</td>
-				                  <td>X</td>
-				                </tr>
 			                </tbody>
 			                <tfoot>
 				                <tr>
@@ -95,11 +85,35 @@
 <script type="text/javascript">
 
 
-   	$("#example1").DataTable();
-	function registrar(){
+$(document).ready(function() {
+    $('#datatable').DataTable();
+} );
+
+$.ajax({
+ 		method: 'GET',
+        url: "https://apiwebfreelance-em645jn.c9users.io/public/proyectos/getProyectosXPostulaciones/2",
+        async: false,
+    dataType : "json",       
+}).done(function (result) {
+	var tbody='<tr>';
+	var acciones='';
+		$.each(result.data, function( i, value ) {
+			acciones=' <span class="btn btn-info" onclick="postular(\''+result.data[i].id_proyecto+'\',\''+result.data[i].titulo+'\')"><i class="fa fa-check-square-o"></i></span>';
+	  			tbody+='<td>'+result.data[i].titulo+'</td>';
+                tbody+='<td>'+result.data[i].descripcion+'</td>';
+                tbody+='<td>'+result.data[i].rango+'</td>';
+                tbody+='<td>'+result.data[i].plazo+'</td>';
+                tbody+='<td class="text-center">'+acciones+'</td>';
+                tbody+='</tr>';
+		});		
+
+    	$('#datatable > tbody').append(tbody);
+
+});   	
+	function postular(id,titulo){
 
 		    $.confirm({
-			    title: 'Registrar postulación',
+			    title: 'Postularme para el proyecto: ' +titulo.toUpperCase(),
 			    content: 'url: registrarPostulacion',
 			    confirmButton: false,
 			    cancelButton: false,
@@ -116,13 +130,56 @@
 			            btnClass: 'btn-blue',
 			            keys: ['enter'],
 			            action: function(){
-			                $.alert('Something else?');
+			                sendDataPostulacion(id);
 			            }
 			        }
 			    }
 			});
 	} 
 	
+
+	function sendDataPostulacion(id){
+              var propuesta_simple = $('#propuesta_simple').val();
+              var precio = $('#precio').val();
+              var propuesta_extensa = $('#propuesta_extensa').val();
+              var arrayRec = $('#recursos').val().substr(0,$('#recursos').val().length-1);
+              var recursos = arrayRec.split(',');    
+              var valor_agregado = $('#valor_agregado').val();
+              var servicios_adicionales = $('#servicios_adicionales').val();
+              var tiempo_estimado = $('#cantidad_tiempo').val()+' '+$('#select_tiempo').val();
+
+              $.ajax({
+                  type: 'POST',
+                  url : 'https://apiwebfreelance-em645jn.c9users.io/public/proyectos/insertPostulacion',
+                  dataType : "json",    
+                  data: { 
+                      'propuesta_simple': propuesta_simple, 
+                      'precio': precio, 
+                      'propuesta_extensa': propuesta_extensa, 
+                      'recursos': recursos,
+                      'valor_agregado': valor_agregado,
+                      'servicios_adicionales': servicios_adicionales,
+                      'tiempo_estimado': tiempo_estimado,
+                      'id_proyecto': id
+                  },
+                  success: function(msg){
+                      if(msg['result']==true){
+                      	location.reload();
+                      	shoeMessage('Exito!','Se ha registrado con exito');
+                      }else{
+                      	shoeMessage('Error!','Ha ocurrido un error al registrar');
+                      }
+                  }
+              });	              
+	
+	}
+
+	function shoeMessage(type,msg){
+	    $.alert({
+	        title: type,
+	        content: msg,
+	    });		
+	}		
 </script>
 
 @stop
