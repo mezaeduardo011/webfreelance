@@ -5,13 +5,13 @@
     <!-- TITULO -->
       <div class="form-group col-md-12">
         <label for="" class="control-label">Título</label>
-          <input type="email" class="form-control" id="inputtitulo3" placeholder="">
+          <input type="email" class="form-control" id="titulo" name="titulo" placeholder="">
       </div>
 
     <!-- DESCRIPCIÓN -->
       <div class="form-group col-md-12">
         <label for="" class="control-label">Descripción</label>
-          <textarea type="text" class="form-control" id="inputDescripcion3" placeholder=""></textarea>
+          <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder=""></textarea>
       </div>
 
     <!-- RANGO -->
@@ -20,32 +20,32 @@
       </div>
       <div class="form-group text-center">
           <label>
-            <input type="radio" name="r3" class="flat-red">
+            <input type="radio"id="rango"  name="rango" class="flat-red" value="0 - 50 USD">
             0 - 50 USD
           </label>
           <label style="margin-left: 15px">
-            <input type="radio" name="r3" class="flat-red">
+            <input type="radio" name="rango" id="rango" class="flat-red" value="50 - 100 USD">
             50 - 100 USD
           </label>
           <label style="margin-left: 15px">
-            <input type="radio" name="r3" class="flat-red">
-            100 - $250 USD
+            <input type="radio" name="rango" id="rango" class="flat-red" value="100 - 250 USD">
+            100 - 250 USD
           </label>
           <label style="margin-left: 15px">
-            <input type="radio" name="r3" class="flat-red" >
+            <input type="radio" name="rango" id="rango" class="flat-red" value="250 - 500 USD">
             250 - 500 USD
           </label><br>
 
           <label style="margin-left: 15px; margin-top: 10px">
-            <input type="radio" name="r3" class="flat-red" >
+            <input type="radio" name="rango" id="rango" class="flat-red" value="1000 - 2000 USD">
             1000 - 2000 USD
           </label>
           <label style="margin-left: 15px">
-            <input type="radio" name="r3" class="flat-red">
+            <input type="radio" name="rango" id="rango" class="flat-red" value="2000 - 3000 USD">
             2000 - 3000 USD
           </label>
           <label style="margin-left: 15px">
-            <input type="radio" name="r3" class="flat-red">
+            <input type="radio" name="rango" id="rango" class="flat-red" value="3000 USD +">
             3000 USD +
           </label>
       </div>
@@ -55,9 +55,9 @@
         <div class="form-group">
           <label for="" class="control-label">Habilidades Requeridas</label>
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="setHab" id="setHab">
               <span class="input-group-btn">
-                <button type="button" class="btn btn-info btn-flat">Agregar</button>
+                <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
               </span>
           </div>
         </div>
@@ -76,8 +76,8 @@
             <!-- /.box-tools -->
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
-            The body of the box
+          <div class="box-body divHabilidades">
+           <input type="hidden" name="habilidades" id="habilidades">
           </div>
           <!-- /.box-body -->
         </div>
@@ -88,7 +88,7 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="" class="control-label">Información Adicional</label>
-            <textarea type="text" class="form-control" id="inputDescripcion3" placeholder=""></textarea>
+            <textarea type="text" class="form-control" name="informacion_adicional" id="informacion_adicional" placeholder=""></textarea>
         </div>
       </div>
 
@@ -97,9 +97,9 @@
         <div class="form-group">
           <label for="" class="control-label">Herramientas Requeridas</label>
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="setHerr" id="setHerr">
               <span class="input-group-btn">
-                <button type="button" class="btn btn-info btn-flat">Agregar</button>
+                <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
               </span>
           </div>
         </div>
@@ -118,8 +118,8 @@
             <!-- /.box-tools -->
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
-            The body of the box
+          <div class="box-body divHerramientas">
+          <input type="hidden" name="herramientas" id="herramientas">
           </div>
           <!-- /.box-body -->
         </div>
@@ -130,12 +130,12 @@
         <label class="control-label">Plazo del proyecto</label>
         <div class="form-group col-md-12">
           <div class=" input-group">
-            <input autocomplete="off" type="text" class="form-control" aria-label="..." >
+            <input autocomplete="off" type="text" class="form-control" aria-label="..." name="cantidad_plazo" id="cantidad_plazo">
             <div class="input-group-btn">
-              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;">
-                <option selected="" value="value1">Días</option> 
-                <option value="value2">Semanas</option>
-                <option value="value3">Meses</option>>
+              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;" name="select_plazo" id="select_plazo">
+                <option selected="Dias" value="Dias">Días</option> 
+                <option value="Semanas">Semanas</option>
+                <option value="Meses">Meses</option>>
                 </select> 
             </div>
           </div>          
@@ -147,6 +147,7 @@
 <script src="admin/js/validator.js"></script>
 
 <script type="text/javascript">
+
 $('#myForm').validator().on('submit', function (e) {
   if (e.isDefaultPrevented()) {
     alert('1');
@@ -169,4 +170,20 @@ $('#myForm').validator().on('submit', function (e) {
       checkboxClass: 'icheckbox_flat-green',
       radioClass: 'iradio_flat-green'
     });
+   var arrayHab='';
+   var arrayHerr='';
+   function addItem(div,inputGet,inputSet,type){  
+    if($(inputGet).val()!=''){
+      $(div).append('<small class="label pull-left bg-yellow" style="margin-right: 5px;">'+$(inputGet).val()+'</small>');   
+      if (type=='Habilidades') {
+        arrayHab+= $(inputGet).val()+',';
+        $(inputSet).val(arrayHab);
+      } else{
+        arrayHerr+= $(inputGet).val()+',';
+        $(inputSet).val(arrayHerr);        
+      }
+      
+      $(inputGet).val('');
+    }
+   } 
 </script>
