@@ -53,7 +53,7 @@
 			                </tbody>
 			                <tfoot>
 				                <tr>
-				                  <<th>Título</th>
+				                  <th>Título</th>
 				                  <th>Descripción</th>
 				                  <th>Rango de presupuesto</th>
 				                  <th>Plazo del proyecto</th>
@@ -113,11 +113,11 @@ $.ajax({
 	function postular(id,titulo){
 
 		    $.confirm({
-			    title: 'Postularme para el proyecto: ' +titulo.toUpperCase(),
+			    title: 'Postularme para el proyecto ' +titulo.toUpperCase(),
 			    content: 'url: registrarPostulacion',
 			    confirmButton: false,
 			    cancelButton: false,
-			    columnClass: 'col-md-6 col-md-offset-3',
+			    columnClass: 'col-md-12',
 			    buttons: {
 			        specialKey: {
 			            text: 'Cancelar',

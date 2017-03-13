@@ -3,38 +3,37 @@
 <form class="form-horizontal" role="form" id="myForm">
   <div class="box-body">
     
-
+  <div class="col-md-12">
     <!-- P. SIMPLE -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <label for="" class="control-label">Propuesta Simple</label>
           <textarea type="text" class="form-control" id="propuesta_simple" placeholder="Descripción..."></textarea>
       </div>
 
     <!-- PRECIO -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6" style="margin-left: 18px">
         <label for="" class="control-label">Precio</label>
           <input type="text" class="form-control" id="precio" placeholder="">
       </div>
+  </div>
 
+  <div class="col-md-12">
     <!-- P. EXTENSA -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <label for="" class="control-label">Propuesta Extensa</label>
           <textarea type="text" class="form-control" id="propuesta_extensa" placeholder="Descripción..."></textarea>
       </div>
 
-    <!-- HABILIDADES REQUERIDAS -->
-      <div class=" form-group col-md-12">    
+    <!-- RECURSOS NECESARIOS -->
+      <div class=" form-group col-md-6" style="margin-left: 18px">    
         <label for="" class="control-label">Recursos Necesarios</label>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" id="setRec">
             <span class="input-group-btn">
               <button type="button" class="btn btn-info btn-flat" onclick="addItemRec('.divRecursos','#setRec','#recursos');">Agregar</button>
             </span>
-        </div>
-      </div>
+        </div><br>
 
-    <!-- WIDGET -->
-      <div class="form-group col-md-12">
         <div class="box box-default collapsed-box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title">Ver recursos</h3>
@@ -47,27 +46,30 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body divRecursos">
-          <input type="hidden" name="recursos" id="recursos">
+            <input type="hidden" name="recursos" id="recursos">
           </div>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
       </div>
-
+  </div>
+        
+  <div class="col-md-12">
     <!-- VALOR AGREGADO -->
-      <div class="form-group col-md-12"> 
+      <div class="form-group col-md-6"> 
           <label for="" class="control-label">Valor Agregado al Proyecto</label>
             <textarea type="text" class="form-control" id="valor_agregado" placeholder=""></textarea>
       </div>
 
     <!-- SERVICIOS ADICIONALES -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6" style="margin-left: 18px">
         <label for="" class="control-label">Servicios Adicionales</label>
-          <input type="text" class="form-control" id="servicios_adicionales" placeholder="">
+          <textarea type="text" class="form-control" id="servicios_adicionales" placeholder=""></textarea>
       </div>
-
+  </div>
 
     <!-- TIEMPO -->
+   
       <div class="form-group col-md-12">
         <label class="control-label">Estimación de Tiempo</label>
           <div class=" input-group">
@@ -80,9 +82,8 @@
               </select> 
             </div>
           </div>          
-     </div>
+      </div>
 
-  </div>  
 </form>
 
 <script src="admin/plugins/iCheck/icheck.min.js"></script>
