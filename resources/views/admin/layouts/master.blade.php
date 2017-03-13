@@ -31,13 +31,6 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <!-- Logo -->
-        <a href="../../index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
-        </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
@@ -190,7 +183,11 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
-            <div class="user-panel">
+            <div>
+                <img src="admin/img/logo_vairowork.png" alt="" style="width: 230px;height: 52px;background: white;margin-top: -33%">
+            </div>
+
+            <div class="user-panel">           
                 <div class="pull-left image">
                     <img src="admin/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
