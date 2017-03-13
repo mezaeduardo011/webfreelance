@@ -99,8 +99,8 @@
 	function registrar(){
 
 		    $.confirm({
-			    title: 'Registrar Proyecto',
-			    content: 'url: registrarProyecto',
+			    title: 'Registrar postulación',
+			    content: 'url: registrarPostulacion',
 			    confirmButton: false,
 			    cancelButton: false,
 			    columnClass: 'col-md-6 col-md-offset-3',

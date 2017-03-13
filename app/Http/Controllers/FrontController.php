@@ -22,5 +22,13 @@ class FrontController extends Controller
 	       return view('admin.proyectos_clientes.registrarProyecto');
 	}  
 
+  public function postulacion_freelancer_index(){
+         return view('admin.postulacion_freelancer.index');
+  }  
+
+  public function registrarPostulacion(){
+         return view('admin.postulacion_freelancer.registrarPostulacion');
+  }  
+
 
 }
