@@ -30,8 +30,8 @@ class FrontController extends Controller
          return view('admin.postulacion_freelancer.registrarPostulacion');
   }  
 
-  public function verPostulaciones(){
-         return view('admin.proyectos_clientes.verPostulaciones');
+  public function verPostulaciones($id_proyecto){
+         return view('admin.proyectos_clientes.verPostulaciones',compact('id_proyecto'));
   }  
 
 

@@ -106,10 +106,9 @@ $.ajax({
     dataType : "json",       
 }).done(function (result) {
 	var tbody='<tr>';
-	var acciones='<span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
-
-	acciones+=' <span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
+	var acciones='';
 		$.each(result.data, function( i, value ) {
+      acciones='<span class="btn btn-info" onclick="verPostulaciones('+result.data[i].id_proyecto+')"><i class="fa fa-check-square-o"></i></span>';
 	  			tbody+='<td>'+result.data[i].titulo+'</td>';
                 tbody+='<td>'+result.data[i].descripcion+'</td>';
                 tbody+='<td>'+result.data[i].rango+'</td>';
@@ -150,11 +149,11 @@ $.ajax({
 			});
 	} 
 
-  function verPostulaciones(){
+  function verPostulaciones(id_proyecto){
 
         $.confirm({
-          title: 'Postulaciones',
-          content: 'url: verPostulaciones',
+          title: false,
+          content: 'url: verPostulaciones/'+id_proyecto,
           confirmButton: false,
           cancelButton: false,
           columnClass: 'col-md-12 ',
@@ -164,14 +163,6 @@ $.ajax({
                   keys: ['shift', 'alt'],
                   action: function(){
                     }
-              },
-              somethingElse: {
-                  text: 'Registrar',
-                  btnClass: 'btn-blue',
-                  keys: ['enter'],
-                  action: function(){
-                     sendDataProyecto();
-                  }
               }
           }
       });
