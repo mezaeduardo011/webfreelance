@@ -20,5 +20,6 @@ Route::get('proyecto_cliente_index','FrontController@proyecto_cliente_index');
 Route::get('registrarProyecto','FrontController@registrarProyecto');
 Route::get('postulacion_freelancer_index','FrontController@postulacion_freelancer_index');
 Route::get('registrarPostulacion','FrontController@registrarPostulacion');
-Route::get('verPostulaciones/{id_proyecto}','FrontController@verPostulaciones');
+Route::get('vistaPostulaciones','FrontController@vistaPostulaciones');
+
 

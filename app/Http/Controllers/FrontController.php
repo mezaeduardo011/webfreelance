@@ -34,5 +34,9 @@ class FrontController extends Controller
          return view('admin.proyectos_clientes.verPostulaciones',compact('id_proyecto'));
   }  
 
+  public function vistaPostulaciones(){
+         return view('admin.postulaciones.vistaPostulaciones');
+  }  
+
 
 }
