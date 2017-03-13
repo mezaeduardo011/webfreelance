@@ -90,8 +90,12 @@
                   type: 'GET',
                   url : 'https://apiwebfreelance-em645jn.c9users.io/public/proyectos/login/'+$('#correo').val()+'/'+$('#contrasena').val(),
                   dataType : "json",    
-                  success: function(msg){
-                      if(msg['error']==0){
+                  success: function(data){
+                      document.cookie = "userId="+data['data'][0].id;
+                      document.cookie = "userName="+data['data'][0].nombre;
+                      document.cookie = "userCorreo="+data['data'][0].correo;
+                      document.cookie = "userPerfil="+data['data'][0].perfil;
+                      if(data['error']==0){
                         location.reload();   
                         window.location.replace("/blank");                     
                       }else{
@@ -107,6 +111,7 @@
           content: msg,
       });   
   }  
+
 </script>
 </body>
 </html>
