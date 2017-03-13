@@ -44,6 +44,17 @@
 				                </tr>
 			                </thead>
 			                <tbody>
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                          <button type="button" class="btn btn-success"><i class="fa fa-eye"></i></button>
+                          <button type="button" class="btn btn-danger"><i class="fa fa-exclamation-circle"></i></button>
+                        </td>
+                        </tr>
 			                </tbody>
 			                <tfoot>
 				                <tr>
