@@ -51,10 +51,20 @@
 				                </tr>
 			                </thead>
 			                <tbody>
+
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="btn btn-info" onclick="verPostulaciones()"><i class="fa fa-check-square-o"></i></span></td>
+                      </tr>
+
+
 			                </tbody>
 			                <tfoot>
 				                <tr>
-				                  <<th>Título</th>
+				                  <th>Título</th>
 				                  <th>Descripción</th>
 				                  <th>Rango de presupuesto</th>
 				                  <th>Plazo del proyecto</th>
@@ -120,7 +130,7 @@ $(document).ready(function() {
 			    content: 'url: registrarProyecto',
 			    confirmButton: false,
 			    cancelButton: false,
-			    columnClass: 'col-md-6 col-md-offset-3',
+			    columnClass: 'col-md-12',
 			    buttons: {
 			        specialKey: {
 			            text: 'Cancelar',
@@ -139,7 +149,33 @@ $(document).ready(function() {
 			    }
 			});
 	} 
-	
+
+  function verPostulaciones(){
+
+        $.confirm({
+          title: 'Postulaciones',
+          content: 'url: verPostulaciones',
+          confirmButton: false,
+          cancelButton: false,
+          columnClass: 'col-md-12 ',
+          buttons: {
+              specialKey: {
+                  text: 'Cerrar',
+                  keys: ['shift', 'alt'],
+                  action: function(){
+                    }
+              },
+              somethingElse: {
+                  text: 'Registrar',
+                  btnClass: 'btn-blue',
+                  keys: ['enter'],
+                  action: function(){
+                     sendDataProyecto();
+                  }
+              }
+          }
+      });
+  } 	
 
 	function sendDataProyecto(){
               var titulo = $('#titulo').val();

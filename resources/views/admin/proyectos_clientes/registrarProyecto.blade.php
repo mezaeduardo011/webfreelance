@@ -15,44 +15,42 @@
       </div>
 
     <!-- RANGO -->
-      <div class="form-group col-md-12">
-        <label for="" class="col-sm-8 control-label">Rango de presupuesto</label><br>
-      </div>
-
-      <div class="form-group text-center col-md-12">
-          <label>
-            <input type="radio"id="rango"  name="rango" class="flat-red" value="0 - 50 USD">
-            0 - 50 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="50 - 100 USD">
-            50 - 100 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="100 - 250 USD">
-            100 - 250 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="250 - 500 USD">
-            250 - 500 USD
-          </label><br>
-
-          <label style="margin-left: 15px; margin-top: 10px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="1000 - 2000 USD">
-            1000 - 2000 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="2000 - 3000 USD">
-            2000 - 3000 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="3000 USD +">
-            3000 USD +
-          </label>
+      <div class="form-group col-md-6">
+        <label for="" class="control-label">Rango de presupuesto</label><br>
+        <div class="form-group text-center col-md-12" style="margin-top: 5%">
+            <label>
+              <input type="radio" id="rango"  name="rango" class="flat-red" value="0 - 50 USD">
+              0 - 50 USD
+            </label>
+            <label style="margin-left: 15px">
+              <input type="radio" name="rango" id="rango" class="flat-red" value="50 - 100 USD">
+              50 - 100 USD
+            </label>
+            <label style="margin-left: 15px">
+              <input type="radio" name="rango" id="rango" class="flat-red" value="100 - 250 USD">
+              100 - 250 USD
+            </label>
+            <label style="margin-left: 15px">
+              <input type="radio" name="rango" id="rango" class="flat-red" value="250 - 500 USD">
+              250 - 500 USD
+            </label>
+            <label style="margin-left: 15px; margin-top: 10px">
+              <input type="radio" name="rango" id="rango" class="flat-red" value="1000 - 2000 USD">
+              1000 - 2000 USD
+            </label>
+            <label style="margin-left: 15px">
+              <input type="radio" name="rango" id="rango" class="flat-red" value="2000 - 3000 USD">
+              2000 - 3000 USD
+            </label>
+            <label style="margin-left: 15px">
+              <input type="radio" name="rango" id="rango" class="flat-red" value="3000 USD +">
+              3000 USD +
+            </label>
+        </div>
       </div>
 
     <!-- HABILIDADES REQUERIDAS -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <label for="" class="control-label">Habilidades Requeridas</label>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" name="setHab" id="setHab">
@@ -60,37 +58,40 @@
               <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
             </span>
         </div>
+
+        <div class="col-md-6" style="margin-top:2%">
+          <div class="box box-default collapsed-box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ver habilidades</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body divHabilidades">
+             <input type="hidden" name="habilidades" id="habilidades">
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
       </div>
 
     <!-- WIDGET -->
-      <div class="form-group col-md-12">
-        <div class="box box-default collapsed-box box-solid">
-          <div class="box-header with-border">
-            <h3 class="box-title">Ver habilidades</h3>
-
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-              </button>
-            </div>
-            <!-- /.box-tools -->
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body divHabilidades">
-           <input type="hidden" name="habilidades" id="habilidades">
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
+     
 
     <!-- INFO ADICIONAL -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <label for="" class="control-label">Información Adicional</label>
           <textarea type="text" class="form-control" name="informacion_adicional" id="informacion_adicional"  placeholder=""></textarea>
       </div>
 
     <!-- HERRAMIENTAS REQUERIDAS -->
-      <div class="form-group col-md-12">    
+      <div class="form-group col-md-6">    
         <label for="" class="control-label">Herramientas Requeridas</label>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control"  name="setHerr" id="setHerr">
@@ -101,7 +102,7 @@
       </div>
 
     <!-- WIDGET -->
-      <div class="form-group col-md-12">
+      <div class="col-md-6" style="margin-top: 2%">
         <div class="box box-default collapsed-box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title">Ver herramientas</h3>
