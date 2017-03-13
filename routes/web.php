@@ -18,4 +18,6 @@ Route::get('/', function () {
 Route::get('/blank','FrontController@blank');
 Route::get('proyecto_cliente_index','FrontController@proyecto_cliente_index');
 Route::get('registrarProyecto','FrontController@registrarProyecto');
+Route::get('postulacion_freelancer_index','FrontController@postulacion_freelancer_index');
+Route::get('registrarPostulacion','FrontController@registrarPostulacion');
 
