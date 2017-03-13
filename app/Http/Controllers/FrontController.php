@@ -38,5 +38,8 @@ class FrontController extends Controller
          return view('admin.postulaciones.vistaPostulaciones');
   }  
 
+  public function login(){
+        return view('admin.login.index');
+  }
 
 }
