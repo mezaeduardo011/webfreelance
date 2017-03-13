@@ -103,6 +103,7 @@ $.ajax({
 	var tbody='<tr>';
 	var acciones='';
 		$.each(result.data, function( i, value ) {
+
       acciones='<span class="btn btn-info" onclick="verPostulaciones('+result.data[i].id_proyecto+')"><i class="fa fa-check-square-o"></i></span>';
 	  			tbody+='<td>'+result.data[i].titulo+'</td>';
                 tbody+='<td>'+result.data[i].descripcion+'</td>';

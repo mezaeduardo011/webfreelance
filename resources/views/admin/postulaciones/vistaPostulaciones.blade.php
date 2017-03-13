@@ -34,33 +34,22 @@
 				                <tr>
 				                  <th>Propuesta Simple</th>
                           <th>Precio</th>
-                          <th>Propuesta Extensa</th>
                           <th>Recursos</th>
-                          <th>Valor agregado</th>
                           <th>Servicios adicionales</th>
                           <th>Tiempo Estimado</th>
+                          <th>Acciones</th>
 				                </tr>
 			                </thead>
 			                <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
 			                </tbody>
 			                <tfoot>
 				                <tr>
 				                  <th>Propuesta Simple</th>
                           <th>Precio</th>
-                          <th>Propuesta Extensa</th>
                           <th>Recursos</th>
-                          <th>Valor agregado</th>
                           <th>Servicios adicionales</th>
                           <th>Tiempo Estimado</th>
+                          <th>Acciones</th>
 				                </tr>
 			                </tfoot>
 			              </table>
@@ -93,7 +82,7 @@ $(document).ready(function() {
 
 $.ajax({
  		method: 'GET',
-        url: "https://apiwebfreelance-em645jn.c9users.io/public/proyectos/getProyectos/1",
+        url: "https://apiwebfreelance-em645jn.c9users.io/public/proyectos/getPostulaciones/2",
         async: false,
     dataType : "json",       
 }).done(function (result) {
@@ -103,13 +92,17 @@ $.ajax({
 	acciones+=' <span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
 		$.each(result.data, function( i, value ) {
 
-	  			tbody+='<td>'+result.data[i].titulo+'</td>';
+	  			tbody+='<td>'+result.data[i].propuesta_simple+'</td>';
 
-                tbody+='<td>'+result.data[i].descripcion+'</td>';
-                tbody+='<td>'+result.data[i].rango+'</td>';
-                tbody+='<td>'+result.data[i].descripcion+'</td>';
-                tbody+='<td>'+result.data[i].rango+'</td>';
-                tbody+='<td>'+result.data[i].plazo+'</td>';
+                tbody+='<td>'+result.data[i].precio+'</td>';
+                tbody+='<td class="text-center">';
+                var obj =  jQuery.parseJSON(result.data[i].recursos);
+                $.each(obj, function( i, value ) {
+                  tbody+=  '<small class="label bg-yellow" style="margin-right: 5px;">'+value+'</small>';
+                });                 
+                tbody+= '</td>';                
+                tbody+='<td>'+result.data[i].servicios_adicionales+'</td>';
+                tbody+='<td>'+result.data[i].tiempo_estimado+'</td>';
                 tbody+='<td class="text-center">'+acciones+'</td>';
                 tbody+='</tr>';
 		});		
