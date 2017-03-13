@@ -21,4 +21,5 @@ Route::get('registrarProyecto','FrontController@registrarProyecto');
 Route::get('postulacion_freelancer_index','FrontController@postulacion_freelancer_index');
 Route::get('registrarPostulacion','FrontController@registrarPostulacion');
 Route::get('verPostulaciones','FrontController@verPostulaciones');
+Route::get('vistaPostulaciones','FrontController@vistaPostulaciones');
 
