@@ -31,9 +31,13 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Iniciar sesión</p>
+  <div class="text-center" id="divLoadingLogin" hidden="">
+    <img src="/admin/img/loading.gif" width="10%"> 
+    <p class="login-box-msg">Ingresando...</p>   
+  </div>
+    <p class="login-box-msg loginP">Iniciar sesión</p>
 
-    <form>
+    <form id="formLogin">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Correo" id="correo">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -52,7 +56,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <a type="submit" class="btn btn-primary btn-block btn-flat" onclick="logear();">Ingresar</a>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" id="button">Ingresar</button>
         </div>
         <!-- /.col -->
       </div>
@@ -84,11 +88,24 @@
     });
   });
 
+
+$( "#formLogin" ).submit(function( event ) {
+  event.preventDefault();
+  logear();
+});
+
   function logear(){
               $.ajax({
                   type: 'GET',
                   url : 'https://apiwebfreelance-em645jn.c9users.io/public/proyectos/login/'+$('#correo').val()+'/'+$('#contrasena').val(),
-                  dataType : "json",    
+                  dataType : "json",
+                     beforeSend: function(){
+                   $('.loginP').hide();
+                   $('#correo').prop('readonly', true);
+                   $('#contrasena').prop('readonly', true);
+                   $('#button').attr('disabled', true);
+                   $('#divLoadingLogin').show();
+                 },
                   success: function(data){
                       document.cookie = "userId="+data['data'][0].id;
                       document.cookie = "userName="+data['data'][0].nombre;
@@ -98,8 +115,12 @@
                         location.reload();   
                         window.location.replace("/blank");                     
                       }else{
+                        mostrarElementos();
                         shoeMessage('Error!','Los datos ingresados no son correctos.');
                       }
+                  },error : function(data){                      
+                        mostrarElementos();
+                        shoeMessage('Error!','Error al conectar con el servidor');                      
                   }
               });    
   }
@@ -110,6 +131,14 @@
           content: msg,
       });   
   }  
+
+  function mostrarElementos(){
+      $('#correo').prop('readonly', false);
+      $('#contrasena').prop('readonly', false);
+      $('#button').attr('disabled', false);                        
+      $('.loginP').show();
+      $('#divLoadingLogin').hide();    
+  }
 
 </script>
 </body>
