@@ -17,7 +17,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="admin/css/skins/_all-skins.min.css">
-     
+    <link rel="stylesheet" href="admin/css/loading.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,7 +29,14 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
-<div class="wrapper">
+<div class="divComplet text-center" id="divLoading">
+    <div class="spinner" >
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>    
+</div>
+
+<div class="wrapper"  id="divContent" style="display: none;overflow-y: hidden;">
 
     <header class="main-header">
         <!-- Header Navbar: style can be found in header.less -->
@@ -166,6 +174,7 @@
     <!-- =============================================== -->
 
     <!-- Content Wrapper. Contains page content -->
+
     @yield('content')
     <!-- /.content-wrapper -->
 
@@ -433,7 +442,15 @@ function deleteAllCookies() {
     }
 }
 
+$( document ).ready(function() {
 
+    setTimeout(hideLoading(), 1000);
+});
+
+function hideLoading() {
+        $('#divLoading').fadeOut(2000);
+        $( "#divContent" ).fadeIn();
+}
 </script>
 @yield('contentJs')
 </body>
