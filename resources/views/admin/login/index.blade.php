@@ -107,12 +107,9 @@ $( "#formLogin" ).submit(function( event ) {
                    $('#divLoadingLogin').show();
                  },
                   success: function(data){
-                      document.cookie = "userId="+data['data'][0].id;
-                      document.cookie = "userName="+data['data'][0].nombre;
-                      document.cookie = "userCorreo="+data['data'][0].correo;
-                      document.cookie = "userPerfil="+data['data'][0].perfil;
+                      
                       if(data['error']==0){
-                        location.reload();   
+                        setCookies();
                         window.location.replace("/blank");                     
                       }else{
                         mostrarElementos();
@@ -140,6 +137,12 @@ $( "#formLogin" ).submit(function( event ) {
       $('#divLoadingLogin').hide();    
   }
 
+ function setCookies(){
+      document.cookie = "userId="+data['data'][0].id;
+      document.cookie = "userName="+data['data'][0].nombre;
+      document.cookie = "userCorreo="+data['data'][0].correo;
+      document.cookie = "userPerfil="+data['data'][0].perfil;  
+ }
 </script>
 </body>
 </html>
