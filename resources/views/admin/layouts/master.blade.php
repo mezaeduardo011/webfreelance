@@ -153,7 +153,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Perfil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Salir</a>
+                                    <a href="#" class="btn btn-default btn-flat" onclick="logout();">Salir</a>
                                 </div>
                             </li>
                         </ul>
@@ -201,13 +201,13 @@
                     </a>                    
                 </li>
                 <li class="treeview" id="postulaciones" hidden="">
-                    <a href="proyectos_freelancer_index" >
+                    <a href="postulaciones" >
                         <i class="fa fa-dashboard"></i> <span>Postulaciones</span>
                     </a>
                 </li>                
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-edit"></i> <span>Salir</span>
+                        <i class="fa fa-edit" onclick="logout();"></i> <span>Salir</span>
                     </a>                  
                 </li>
             </ul>
@@ -465,7 +465,27 @@ function getCookie(cname) {
         }
     }
     return "";
-}     
+}  
+
+function logout(){
+    deleteAllCookies();
+    window.location.replace("/login");     
+}   
+
+
+
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
+
+
 </script>
 @yield('contentJs')
 </body>

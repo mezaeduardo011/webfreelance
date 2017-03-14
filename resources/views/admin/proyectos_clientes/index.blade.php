@@ -13,7 +13,7 @@
             <br>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Proyectos</a></li>
-                <li><a href="#" class="active">mis proyectos</a></li>
+                <li><a href="#" class="active">Mis proyectos</a></li>
             </ol>
         </section>
 

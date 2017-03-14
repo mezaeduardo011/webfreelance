@@ -10,14 +10,10 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Blank page
-                <small>it all starts here</small>
-            </h1>
+            <br>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Postulaciones</a></li>
+                <li class="active">Mis postulaciones</li>
             </ol>
         </section>
 
@@ -26,14 +22,11 @@
      
             <!-- Default box -->
             <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
-                </div>
-
+              
                 <div class="box-body">
                     <div class="box">
 			            <div class="box-header">
-			              <h3 class="box-title">Data Table With Full Features</h3>
+			              <h3 class="box-title">Mis postulaciones</h3>
 			            </div>                 
 			            <div class="box-body">
 			              <table id="datatable" class="table table-bordered table-striped">
@@ -75,7 +68,7 @@
 			        </div>
                 </div>              
                 <div class="box-footer">
-                    Footer
+                  
                 </div>       
             </div>
             <!-- /.box -->
