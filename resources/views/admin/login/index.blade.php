@@ -109,7 +109,7 @@ $( "#formLogin" ).submit(function( event ) {
                   success: function(data){
                       
                       if(data['error']==0){
-                        setCookies();
+                        setCookies(data);
                         window.location.replace("/blank");                     
                       }else{
                         mostrarElementos();
@@ -137,7 +137,7 @@ $( "#formLogin" ).submit(function( event ) {
       $('#divLoadingLogin').hide();    
   }
 
- function setCookies(){
+ function setCookies(data){
       document.cookie = "userId="+data['data'][0].id;
       document.cookie = "userName="+data['data'][0].nombre;
       document.cookie = "userCorreo="+data['data'][0].correo;
