@@ -10,14 +10,10 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Blank page
-                <small>it all starts here</small>
-            </h1>
+            <br>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Proyectos</a></li>
+                <li><a href="#" class="active">mis proyectos</a></li>
             </ol>
         </section>
 
@@ -26,18 +22,15 @@
      
             <!-- Default box -->
             <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
-                </div>
-
+    
                 <div style="width:30%; margin-left: 30%;margin-top:1%">
-                <button type="button" class="btn btn-block btn-primary btn-sm" onclick="registrar()">Registrar</button>
+                <button type="button" class="btn btn-block btn-primary btn-sm" onclick="registrar()">Registrar nuevo proyecto</button>
                 </div>
 
                 <div class="box-body">
                     <div class="box">
 			            <div class="box-header">
-			              <h3 class="box-title">Data Table With Full Features</h3>
+			              <h3 class="box-title">Proyectos registrados</h3>
 			            </div>                 
 			            <div class="box-body">
 			              <table id="datatable" class="table table-bordered table-striped">
@@ -51,16 +44,6 @@
 				                </tr>
 			                </thead>
 			                <tbody>
-
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><span class="btn btn-info" onclick="verPostulaciones()"><i class="fa fa-check-square-o"></i></span></td>
-                      </tr>
-
-
 			                </tbody>
 			                <tfoot>
 				                <tr>
@@ -74,10 +57,7 @@
 			              </table>
 			            </div>   
 			        </div>
-                </div>              
-                <div class="box-footer">
-                    Footer
-                </div>       
+                </div>                     
             </div>
             <!-- /.box -->
 
@@ -95,7 +75,11 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#datatable').DataTable();
+    $('#datatable').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+    } );
 } );
 
 
