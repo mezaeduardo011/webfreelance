@@ -44,17 +44,6 @@
 				                </tr>
 			                </thead>
 			                <tbody>
-                        <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                          <button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                          <button type="button" class="btn btn-success"><i class="fa fa-eye"></i></button>
-                          <button type="button" class="btn btn-danger"><i class="fa fa-exclamation-circle"></i></button>
-                        </td>
-                        </tr>
 			                </tbody>
 			                <tfoot>
 				                <tr>
@@ -104,7 +93,10 @@ $.ajax({
 	var acciones='';
 		$.each(result.data, function( i, value ) {
 
-      acciones='<span class="btn btn-info" onclick="verPostulaciones('+result.data[i].id_proyecto+')"><i class="fa fa-check-square-o"></i></span>';
+      acciones='<span style="margin-right: 5px;" class="btn btn-success" onclick="verPostulaciones('+result.data[i].id_proyecto+')"><i class="fa fa-edit"></i></span>';
+      acciones+='<span style="margin-right: 5px;" class="btn btn-warning" onclick="verPostulaciones('+result.data[i].id_proyecto+')"><i class="fa fa-eye"></i></span>';
+      acciones+='<span class="btn btn-danger" onclick="verPostulaciones('+result.data[i].id_proyecto+')"><i class="fa fa-exclamation-circle"></i></span>';
+
 	  			tbody+='<td>'+result.data[i].titulo+'</td>';
                 tbody+='<td>'+result.data[i].descripcion+'</td>';
                 tbody+='<td>'+result.data[i].rango+'</td>';

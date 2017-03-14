@@ -43,15 +43,7 @@
 				                </tr>
 			                </thead>
 			                <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td class="text-center">
-                            <button type="button" class="btn btn-info"><i class="fa fa-search-plus"></i></button>
-                          </td>
-                        </tr>
+
 			                </tbody>
 			                <tfoot>
 				                <tr>
