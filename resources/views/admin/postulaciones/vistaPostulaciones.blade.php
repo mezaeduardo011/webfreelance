@@ -41,6 +41,15 @@
 				                </tr>
 			                </thead>
 			                <tbody>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td class="text-center">
+                            <button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-close"></i></button>
+                          </td>
 			                </tbody>
 			                <tfoot>
 				                <tr>

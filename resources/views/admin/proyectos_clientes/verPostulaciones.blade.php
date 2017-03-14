@@ -19,6 +19,19 @@
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="text-center">
+                <button type="button" class="btn btn-info"><i class="fa fa-eye"></i></button>
+                <button type="button" class="btn btn-success"><i class="fa fa-check"></i></button>
+                <button type="button" class="btn btn-primary"><i class="fa fa-wechat"></i></button>
+                <button type="button" class="btn btn-danger"><i class="fa fa-close"></i></button>
+              </td><td></td>
+            </tr>
           </tbody>
           <tfoot>
             <tr>
