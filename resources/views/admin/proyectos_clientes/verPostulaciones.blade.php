@@ -19,19 +19,6 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="text-center">
-                <button type="button" class="btn btn-info"><i class="fa fa-eye"></i></button>
-                <button type="button" class="btn btn-success"><i class="fa fa-check"></i></button>
-                <button type="button" class="btn btn-primary"><i class="fa fa-wechat"></i></button>
-                <button type="button" class="btn btn-danger"><i class="fa fa-close"></i></button>
-              </td><td></td>
-            </tr>
           </tbody>
           <tfoot>
             <tr>
@@ -80,8 +67,10 @@ $.ajax({
   var tbody='<tr>';
   var acciones='';
     $.each(result.data, function( i, value ) {
-      acciones='<span class="btn btn-info" onclick="aceptarPostulacion()"><i class="fa fa-check-square-o"></i></span>';
-      acciones+='<span class="btn btn-info" onclick="recharaPostulacion()"><i class="fa fa-check-square-o"></i></span>';
+      acciones='<span style="margin-right:5px" class="btn btn-info" onclick="aceptarPostulacion()"><i class="fa fa-eye"></i></span>';
+      acciones+='<span style="margin-right:5px"  class="btn btn-success" onclick="recharaPostulacion()"><i class="fa fa-check"></i></span>';
+      acciones+='<span style="margin-right:5px"  class="btn btn-primary" onclick="recharaPostulacion()"><i class="fa fa-wechat"></i></span>';
+      acciones+='<span class="btn btn-danger" onclick="recharaPostulacion()"><i class="fa fa-close"></i></span>';
           tbody+='<td>'+result.data[i].propuesta_simple+'</td>';
                 tbody+='<td>'+result.data[i].precio+'</td>';
                 tbody+='<td class="text-center">';
