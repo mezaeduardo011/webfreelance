@@ -12,9 +12,7 @@
             <tr>
               <th>Propuesta Simple</th>
               <th>Precio</th>
-              <th>Propuesta Extensa</th>
               <th>Recursos</th>
-              <th>Valor agregado</th>
               <th>Servicios adicionales</th>
               <th>Tiempo Estimado</th>
               <th>Acciones</th>
@@ -26,9 +24,7 @@
             <tr>
               <th>Propuesta Simple</th>
               <th>Precio</th>
-              <th>Propuesta Extensa</th>
               <th>Recursos</th>
-              <th>Valor agregado</th>
               <th>Servicios adicionales</th>
               <th>Tiempo Estimado</th>
               <th>Acciones</th>
@@ -62,10 +58,9 @@
 $(document).ready(function() {
 //    $('#datatablePostulaciones').DataTable();
 
-
 $.ajax({
     method: 'GET',
-        url: "https://apiwebfreelance-em645jn.c9users.io/public/proyectos/getPostulacionesxProyecto/"+$('id_proyecto').val(),
+        url: "https://apiwebfreelance-em645jn.c9users.io/public/proyectos/getPostulacionesxProyecto/"+$('#id_proyecto').val(),
         async: false,
     dataType : "json",       
 }).done(function (result) {
@@ -76,14 +71,12 @@ $.ajax({
       acciones+='<span class="btn btn-info" onclick="recharaPostulacion()"><i class="fa fa-check-square-o"></i></span>';
           tbody+='<td>'+result.data[i].propuesta_simple+'</td>';
                 tbody+='<td>'+result.data[i].precio+'</td>';
-                tbody+='<td>'+result.data[i].propuesta_extensa+'</td>';
-                tbody+='<td>';
+                tbody+='<td class="text-center">';
                 var obj =  jQuery.parseJSON(result.data[i].recursos);
                 $.each(obj, function( i, value ) {
-                  tbody+=  '<small class="label pull-left bg-yellow" style="margin-right: 5px;">'+value+'</small>';
+                  tbody+=  '<small class="label bg-yellow" style="margin-right: 5px;">'+value+'</small>';
                 });                 
                 tbody+= '</td>';
-                tbody+='<td>'+result.data[i].valor_agregado+'</td>';
                 tbody+='<td>'+result.data[i].servicios_adicionales+'</td>';
                 tbody+='<td>'+result.data[i].tiempo_estimado+'</td>';
                 tbody+='<td class="text-center">'+acciones+'</td>';

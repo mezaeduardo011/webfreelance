@@ -19,7 +19,7 @@
         <label for="" class="control-label text-center">Rango de presupuesto</label><br>
         <div class="form-group text-center" style="margin-top: 5%">
           <label>
-            <input type="radio"id="rango"  name="rango" class="flat-red" value="0 - 50 USD">
+            <input type="radio" name="rango" id="rango"  class="flat-red" value="0 - 50 USD">
             0 - 50 USD
           </label>
           <label style="margin-left: 15px">

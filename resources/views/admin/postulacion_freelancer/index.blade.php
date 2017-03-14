@@ -15,7 +15,7 @@
                 <li><a href="#"><i class="fa fa-dashboard"></i> Proyectos</a></li>
                 <li class="active">Proyectos Disponibles</li>
             </ol>
-        </section>
+        </section> 
 
         <!-- Main content -->
         <section class="content">
@@ -95,7 +95,7 @@ $.ajax({
 	var tbody='<tr>';
 	var acciones='';
 		$.each(result.data, function( i, value ) {
-			acciones=' <span class="btn btn-info" onclick="postular(\''+result.data[i].id_proyecto+'\',\''+result.data[i].titulo+'\')"><i class="fa fa-check-square-o"></i></span>';
+			acciones=' <span class="btn btn-info" onclick="postular(\''+result.data[i].id+'\',\''+result.data[i].titulo+'\')"><i class="fa fa-check-square-o"></i></span>';
 	  			tbody+='<td>'+result.data[i].titulo+'</td>';
                 tbody+='<td>'+result.data[i].descripcion+'</td>';
                 tbody+='<td>'+result.data[i].rango+'</td>';
@@ -108,7 +108,6 @@ $.ajax({
 
 });   	
 	function postular(id,titulo){
-
 		    $.confirm({
 			    title: 'Postularme para el proyecto ' +titulo.toUpperCase(),
 			    content: 'url: registrarPostulacion',
@@ -157,11 +156,12 @@ $.ajax({
                       'valor_agregado': valor_agregado,
                       'servicios_adicionales': servicios_adicionales,
                       'tiempo_estimado': tiempo_estimado,
-                      'id_proyecto': id
+                      'id_proyecto': id,
+                      'id_freelance': 2
                   },
                   success: function(msg){
                       if(msg['result']==true){
-                      	location.reload();
+                      	window.location.replace("/postulaciones");       
                       	shoeMessage('Exito!','Se ha registrado con exito');
                       }else{
                       	shoeMessage('Error!','Ha ocurrido un error al registrar');

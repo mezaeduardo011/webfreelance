@@ -16,7 +16,7 @@
           <input type="text" class="form-control" id="precio" placeholder="">
       </div>
   </div>
-
+ 
   <div class="col-md-12">
     <!-- P. EXTENSA -->
       <div class="form-group col-md-6">
@@ -76,9 +76,9 @@
             <input autocomplete="off" type="text" class="form-control" aria-label="..." id="cantidad_tiempo">
             <div class="input-group-btn">
               <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;" id="select_tiempo">
-                <option selected="" value="value1">Días</option> 
-                <option value="value2">Semanas</option>
-                <option value="value3">Meses</option>>
+                <option selected="" value="Dias">Días</option> 
+                <option value="Semanas">Semanas</option>
+                <option value="Meses">Meses</option>>
               </select> 
             </div>
           </div>          
