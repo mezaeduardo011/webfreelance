@@ -41,15 +41,6 @@
 				                </tr>
 			                </thead>
 			                <tbody>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td class="text-center">
-                            <button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fa fa-close"></i></button>
-                          </td>
 			                </tbody>
 			                <tfoot>
 				                <tr>
@@ -96,9 +87,9 @@ $.ajax({
     dataType : "json",       
 }).done(function (result) {
 	var tbody='<tr>';
-	var acciones='<span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
+	var acciones='<span class="btn btn-warning"><i class="fa fa-edit"></i></span>';
 
-	acciones+=' <span class="btn btn-info"><i class="fa fa-check-square-o"></i></span>';
+	acciones+=' <span class="btn btn-danger"><i class="fa fa-close"></i></span>';
 		$.each(result.data, function( i, value ) {
 
 	  			tbody+='<td>'+result.data[i].propuesta_simple+'</td>';
