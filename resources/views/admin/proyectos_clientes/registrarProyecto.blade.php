@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="admin/plugins/iCheck/all.css">
+<!-- Ion Slider -->
+<link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.css">
+<!-- ion slider Nice -->
+<link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.skinNice.css">
 
 <form class="form-horizontal" role="form" id="myForm">
   <div class="box-body">
@@ -48,6 +52,10 @@
           </label>
         </div>
       </div>
+
+                <div class="col-sm-6">
+                  <input id="range_5" type="text" name="range_5" value="">
+                </div>
 
     <!-- HABILIDADES REQUERIDAS -->
       <div class="form-group col-md-6" style="margin-left: 18px">
@@ -128,6 +136,8 @@
 
 <script src="admin/plugins/iCheck/icheck.min.js"></script>
 <script src="admin/js/validator.js"></script>
+<!-- Ion Slider -->
+<script src="admin/plugins/ionslider/ion.rangeSlider.min.js"></script>
 
 <script type="text/javascript">
 
@@ -169,4 +179,15 @@ $('#myForm').validator().on('submit', function (e) {
       $(inputGet).val('');
     }
    } 
+$(function () {
+       $("#range_5").ionRangeSlider({
+      min: 0,
+      max: 10,
+      type: 'single',
+      step: 0.1,
+      postfix: " mm",
+      prettify: false,
+      hasGrid: true
+    });
+ });       
 </script>
