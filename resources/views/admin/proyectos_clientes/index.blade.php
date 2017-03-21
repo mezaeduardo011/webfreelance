@@ -131,6 +131,13 @@ $.ajax({
 			            keys: ['enter'],
 			            action: function(){
 			               sendDataProyecto();
+                      $( "#formularioProyecto" ).submit();   
+                      $('#formularioProyecto').on('valid.bs.validator invalid.bs.validator', function (e) {
+                      if (e.relatedTarget.name === 'userName') {
+                        e.type === 'valid' ? console.log("valid!") : console.log("invalid!")
+                      }
+                    })
+                      $(this).preventDefault();
 			            }
 			        }
 			    }

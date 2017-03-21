@@ -3,13 +3,16 @@
 <link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.css">
 <!-- ion slider Nice -->
 <link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.skinNice.css">
+<!-- Bootstrap validator -->
+<link rel="stylesheet" href="css/bootstrapValidator.min.css">
 
-<form class="form-horizontal" role="form" id="myForm">
+
+<form class="form-horizontal" role="form" id="formularioProyecto">
   <div class="box-body">
     <!-- TITULO -->
       <div class="form-group col-md-12">
         <label for="" class="control-label">Título</label>
-          <input type="email" class="form-control" id="titulo" name="titulo" placeholder="">
+          <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
       </div>
 
     <!-- DESCRIPCIÓN -->
@@ -138,16 +141,11 @@
 <script src="admin/js/validator.js"></script>
 <!-- Ion Slider -->
 <script src="admin/plugins/ionslider/ion.rangeSlider.min.js"></script>
+<!-- Ion Slider -->
+<script src="js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript">
 
-$('#myForm').validator().on('submit', function (e) {
-  if (e.isDefaultPrevented()) {
-    alert('1');
-  } else {
-    alert('2');
-  }
-});
       //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
@@ -189,5 +187,52 @@ $(function () {
       prettify: false,
       hasGrid: true
     });
- });       
+ });    
+
+
+ $('#formularioProyecto').bootstrapValidator({
+ 
+   message: 'Este valor no es valido',
+ 
+   feedbackIcons: {
+ 
+     valid: 'glyphicon glyphicon-ok',
+ 
+     invalid: 'glyphicon glyphicon-remove',
+ 
+     validating: 'glyphicon glyphicon-refresh'
+ 
+   },
+ 
+   fields: {
+ 
+     descripcion: {
+ 
+       validators: {
+ 
+         notEmpty: {
+ 
+           message: 'El nombre de usuario es requerido'
+ 
+         }
+ 
+       }
+ 
+     },titulo: {
+ 
+       validators: {
+ 
+         notEmpty: {
+ 
+           message: 'El nombre de usuario es requerido'
+ 
+         }
+ 
+       }
+ 
+     }
+ 
+   }
+ 
+});   
 </script>
