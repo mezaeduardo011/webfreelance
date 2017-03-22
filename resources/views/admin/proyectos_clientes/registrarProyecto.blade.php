@@ -5,143 +5,215 @@
 <link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.skinNice.css">
 <!-- Bootstrap validator -->
 <link rel="stylesheet" href="css/bootstrapValidator.min.css">
+<!-- Wizard -->
+<link rel="stylesheet" href="admin/css/wizard.css">
 
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
 
-<form class="form-horizontal" id="formularioProyecto"  role="form" data-toggle="validator">
-  <div class="box-body">
-    <!-- TITULO -->
-      <div class="col-md-12">
-        <div class="form-group ">
-          <label for="" class="control-label">Título</label>
-          <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título del proyecto">        
-        </div>
-      </div>
+                    <li role="presentation" class="active">
+                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                        </a>
+                    </li>
 
-    <div class="col-md-12">  
-    <!-- DESCRIPCIÓN -->
-      <div class="form-group col-md-6">
-        <label for="" class="control-label">Descripción</label>
-          <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción completa del proyecto"></textarea>
-      </div>
-    <!-- INFO ADICIONAL -->
-      <div class="form-group col-md-6" style="margin-left: 4%">
-        <label for="" class="control-label">Información Adicional</label>
-          <textarea type="text" class="form-control" id="informacion_adicional" name="informacion_adicional" placeholder=""></textarea>
-      </div>
-    </div>
+                    <li role="presentation" class="disabled">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                        </a>
+                    </li>
 
-    <div class="col-md-12">
-    <!-- HABILIDADES REQUERIDAS -->
-      <div class="form-group col-md-6">
-        <label for="" class="control-label">Habilidades Requeridas</label>
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control" name="setHab" id="setHab">
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
-            </span>
-        </div><br>
-        <!-- WIDGET -->
-            <div class="box box-default collapsed-box box-solid">
-              <div class="box-header with-border">
-                <h3 class="box-title">Ver habilidades</h3>
+                    <li role="presentation" class="disabled">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+                        <form class="form-horizontal" id="formularioProyecto">
+                        <!-- TITULO -->
+                          <div class="col-md-12">
+                            <div class="form-group ">
+                              <label for="" class="control-label">Título</label>
+                              <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título del proyecto">        
+                            </div>
+                          </div>    
+                          <div class="col-md-12">  
+                          <!-- DESCRIPCIÓN -->
+                            <div class="form-group col-md-6">
+                              <label for="" class="control-label">Descripción</label>
+                                <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción completa del proyecto"></textarea>
+                            </div>
+                          <!-- INFO ADICIONAL -->
+                            <div class="form-group col-md-6" style="margin-left: 4%">
+                              <label for="" class="control-label">Información Adicional</label>
+                                <textarea type="text" class="form-control" id="informacion_adicional" name="informacion_adicional" placeholder=""></textarea>
+                            </div>
+                          </div>        
 
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                  </button>
+                        <div class="col-md-12">
+                        <!-- HABILIDADES REQUERIDAS -->
+                          <div class="form-group col-md-6">
+                            <label for="" class="control-label">Habilidades Requeridas</label>
+                            <div class="input-group input-group-sm">
+                              <input type="text" class="form-control" name="setHab" id="setHab">
+                                <span class="input-group-btn">
+                                  <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
+                                </span>
+                            </div><br>
+                            <!-- WIDGET -->
+                                <div class="box box-default collapsed-box box-solid">
+                                  <div class="box-header with-border">
+                                    <h3 class="box-title">Ver habilidades</h3>
+
+                                    <div class="box-tools pull-right">
+                                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                      </button>
+                                    </div>
+                                    <!-- /.box-tools -->
+                                  </div>
+                                  <!-- /.box-header -->
+                                  <div class="box-body divHabilidades">
+                                   <input type="hidden" name="habilidades" id="habilidades">
+                                  </div>
+                                  <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                          </div>
+                        <!-- HERRAMIENTAS REQUERIDAS -->
+                          <div class="form-group col-md-6" style="margin-left: 4%">    
+                            <label for="" class="control-label">Herramientas Requeridas</label>
+                            <div class="input-group input-group-sm">
+                              <input type="text" class="form-control"  name="setHerr" id="setHerr">
+                                <span class="input-group-btn">
+                                  <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
+                                </span>
+                            </div><br>
+                            <!-- WIDGET -->
+                            <div class="box box-default collapsed-box box-solid">
+                              <div class="box-header with-border">
+                                <h3 class="box-title">Ver herramientas</h3>
+                                <div class="box-tools pull-right">
+                                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="box-body divHerramientas">
+                              <input type="hidden" name="herramientas" id="herramientas">
+                              </div>
+                            </div>
+                          </div>
+                        </div>    
+                        <div class="col-md-12">
+                          <!-- RANGO -->
+                          <div class="form-group col-md-6">
+                            <label for="" class="control-label text-center">Rango de presupuesto</label><br>
+                            <div class="text-center" style="margin-top: 1%">
+                              <label>
+                                <input type="radio" name="rango" id="rango"  class="flat-red" value="0 - 50 USD">
+                                0 - 50 USD
+                              </label>
+                              <label style="margin-left: 15px">
+                                <input type="radio" name="rango" id="rango" class="flat-red" value="50 - 100 USD">
+                                50 - 100 USD
+                              </label>
+                              <label style="margin-left: 15px">
+                                <input type="radio" name="rango" id="rango" class="flat-red" value="100 - 250 USD">
+                                100 - 250 USD
+                              </label>
+                              <label style="margin-left: 15px">
+                                <input type="radio" name="rango" id="rango" class="flat-red" value="250 - 500 USD">
+                                250 - 500 USD
+                              </label>
+                              <label style="margin-left: 15px; margin-top: 10px">
+                                <input type="radio" name="rango" id="rango" class="flat-red" value="1000 - 2000 USD">
+                                1000 - 2000 USD
+                              </label>
+                              <label style="margin-left: 15px">
+                                <input type="radio" name="rango" id="rango" class="flat-red" value="2000 - 3000 USD">
+                                2000 - 3000 USD
+                              </label>
+                              <label style="margin-left: 15px">
+                                <input type="radio" name="rango" id="rango" class="flat-red" value="3000 USD +">
+                                3000 USD +
+                              </label>
+                            </div>
+                          </div>
+                          <!-- PLAZO DEL PROYECTO -->
+                          <div class="form-group col-md-6" style="margin-left: 4%">
+                            <label class="control-label">Plazo del proyecto</label>
+                            <div class=" input-group" style="margin-top: 5%">
+                                <input id="range_5" type="text" name="range_5" value="" > 
+                                <div class="input-group-btn">
+                                  <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;margin-left:10%" name="select_plazo" id="select_plazo">
+                                    <option selected="Dias" value="Dias">Días</option> 
+                                    <option value="Semanas">Semanas</option>
+                                    <option value="Meses">Meses</option>
+                                  </select> 
+                              </div>
+                            </div>          
+                          </div>
+                        </div>                                                                                       
+                        </form>
+
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                            <br><br>
+                        </ul>
+
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        <h3>Step 2</h3>
+                        <p>This is step 2</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                            <br><br>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step3">
+                        <h3>Step 3</h3>
+                        <p>This is step 3</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                            <br><br>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <h3>Complete</h3>
+                        <p>You have successfully completed all steps.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br><br>
                 </div>
-                <!-- /.box-tools -->
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body divHabilidades">
-               <input type="hidden" name="habilidades" id="habilidades">
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-      </div>
-    <!-- HERRAMIENTAS REQUERIDAS -->
-      <div class="form-group col-md-6" style="margin-left: 4%">    
-        <label for="" class="control-label">Herramientas Requeridas</label>
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control"  name="setHerr" id="setHerr">
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
-            </span>
-        </div><br>
-        <!-- WIDGET -->
-        <div class="box box-default collapsed-box box-solid">
-          <div class="box-header with-border">
-            <h3 class="box-title">Ver herramientas</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-              </button>
-            </div>
-          </div>
-          <div class="box-body divHerramientas">
-          <input type="hidden" name="herramientas" id="herramientas">
-          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-md-12">
-    <!-- RANGO -->
-      <div class="form-group col-md-6">
-        <label for="" class="control-label text-center">Rango de presupuesto</label><br>
-        <div class="text-center" style="margin-top: 1%">
-          <label>
-            <input type="radio" name="rango" id="rango"  class="flat-red" value="0 - 50 USD">
-            0 - 50 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="50 - 100 USD">
-            50 - 100 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="100 - 250 USD">
-            100 - 250 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="250 - 500 USD">
-            250 - 500 USD
-          </label>
-          <label style="margin-left: 15px; margin-top: 10px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="1000 - 2000 USD">
-            1000 - 2000 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="2000 - 3000 USD">
-            2000 - 3000 USD
-          </label>
-          <label style="margin-left: 15px">
-            <input type="radio" name="rango" id="rango" class="flat-red" value="3000 USD +">
-            3000 USD +
-          </label>
-        </div>
-      </div>
-    <!-- PLAZO DEL PROYECTO -->
-        <div class="form-group col-md-6" style="margin-left: 4%">
-          <label class="control-label">Plazo del proyecto</label>
-          <div class=" input-group" style="margin-top: 5%">
-              <input id="range_5" type="text" name="range_5" value="" > 
-              <div class="input-group-btn">
-                <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;margin-left:10%" name="select_plazo" id="select_plazo">
-                  <option selected="Dias" value="Dias">Días</option> 
-                  <option value="Semanas">Semanas</option>
-                  <option value="Meses">Meses</option>
-                </select> 
-            </div>
-          </div>          
-        </div>
-  </div> 
-  <input type="submit" class="btn btn-block btn-info" disabled value="Registrar"> 
-
-</form>
 
 <script src="admin/plugins/iCheck/icheck.min.js"></script>
 <script src="admin/js/validator.js"></script>
 <!-- Ion Slider -->
 <script src="admin/plugins/ionslider/ion.rangeSlider.min.js"></script>
+<!-- Wizard -->
+<script src="js/wizard.js"></script>
 <script src="js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript">

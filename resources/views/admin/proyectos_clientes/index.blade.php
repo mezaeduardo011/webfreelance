@@ -113,7 +113,7 @@ $.ajax({
 	function registrar(){
 
 		    $.dialog({
-			    title: 'Registrar Proyecto',
+			    title: false,
 			    content: 'url: registrarProyecto',
           closeIcon: true,
           closeIconClass: 'fa fa-close',
