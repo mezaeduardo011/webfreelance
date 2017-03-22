@@ -6,19 +6,20 @@
 <!-- Bootstrap validator -->
 <link rel="stylesheet" href="css/bootstrapValidator.min.css">
 
-<form class="form-horizontal" role="form" id="myForm">
+
+<form class="form-horizontal" id="formularioPostulacion"  role="form" data-toggle="validator">
   <div class="box-body">
     
   <div class="col-md-12">
     <!-- P. SIMPLE -->
       <div class="form-group col-md-6">
         <label for="" class="control-label">Propuesta Simple</label>
-          <textarea type="text" class="form-control" id="propuesta_simple" placeholder="Descripción..."></textarea>
+          <textarea type="text" class="form-control" id="propuesta_simple" name="propuesta_simple" placeholder="Descripción..."></textarea>
       </div>
     <!-- P. EXTENSA -->
       <div class="form-group col-md-6" style="margin-left: 4%">
         <label for="" class="control-label">Propuesta Extensa</label>
-          <textarea type="text" class="form-control" id="propuesta_extensa" placeholder="Descripción..."></textarea>
+          <textarea type="text" class="form-control" id="propuesta_extensa" name="propuesta_extensa" placeholder="Descripción..."></textarea>
       </div>
   </div>
 
@@ -27,7 +28,7 @@
       <div class=" form-group col-md-6">    
         <label for="" class="control-label">Recursos Necesarios</label>
         <div class="input-group input-group-sm">
-          <input type="text" class="form-control" id="setRec">
+          <input type="text" class="form-control" id="recursos" name="recursos">
             <span class="input-group-btn">
               <button type="button" class="btn btn-info btn-flat" onclick="addItemRec('.divRecursos','#setRec','#recursos');">Agregar</button>
             </span>
@@ -48,7 +49,7 @@
     <!-- VALOR AGREGADO -->
       <div class="form-group col-md-6" style="margin-left: 4%"> 
           <label for="" class="control-label">Valor Agregado al Proyecto</label>
-            <textarea type="text" class="form-control" id="valor_agregado" placeholder=""></textarea>
+            <textarea type="text" class="form-control" id="valor_agregado" name="valor_agregado" placeholder=""></textarea>
       </div>
   </div>
         
@@ -56,7 +57,7 @@
     <!-- SERVICIOS ADICIONALES -->
       <div class="form-group col-md-6">
         <label for="" class="control-label">Servicios Adicionales</label>
-          <textarea type="text" class="form-control" id="servicios_adicionales" placeholder=""></textarea>
+          <textarea type="text" class="form-control" id="servicios_adicionales" name="servicios_adicionales" placeholder=""></textarea>
       </div>
     <!-- TIEMPO -->
       <div class="form-group col-md-6" style="margin-left: 4%">
@@ -90,6 +91,7 @@
 <script src="admin/js/validator.js"></script>
 <!-- Ion Slider -->
 <script src="admin/plugins/ionslider/ion.rangeSlider.min.js"></script>
+<script src="js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript">
 
@@ -144,6 +146,112 @@
     });
  });    
 
+   $('#formularioPostulacion').bootstrapValidator({
+
+   
+     fields: {
+   
+       propuesta_simple: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Este campo es requerido.'
+   
+           }
+   
+         }
+   
+       },propuesta_extensa: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Este campo es requerido.'
+   
+           }
+   
+         }
+   
+       },recursos: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Ingrese al menos un recurso.'
+   
+           }
+   
+         }
+   
+       },valor_agregado: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Este campo es requerido.'
+   
+           }
+   
+         }
+   
+       },servicios_adicionales: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Este campo es requerido.'
+   
+           }
+   
+         }
+   
+       },precio: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Ingrese un precio estimado.'
+   
+           }
+   
+         }
+   
+       },tiempo: {
+   
+         validators: {
+   
+           notEmpty: {
+   
+             message: 'Ingrese un lapso de tiempo.'
+   
+           }
+   
+         }
+   
+       }
+   
+     }
+ 
+});   
+
+   $('#formularioPostulacion').on('status.field.bv', function(e, data) {
+        formIsValid = true;
+        $('.form-group',$(this)).each( function() {
+            formIsValid = formIsValid && $(this).hasClass('has-success');
+        });
+        if(formIsValid) {
+            $('.submit-button', $(this)).attr('disabled', false);
+        } else {
+            $('.submit-button', $(this)).attr('disabled', true);
+        }
+    });
 
 
 </script>

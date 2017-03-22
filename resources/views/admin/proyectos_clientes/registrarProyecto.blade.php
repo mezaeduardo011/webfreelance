@@ -35,7 +35,7 @@
       <div class="form-group col-md-6">
         <label for="" class="control-label">Habilidades Requeridas</label>
         <div class="input-group input-group-sm">
-          <input type="text" class="form-control" name="setHab" id="setHab">
+          <input type="text" class="form-control" name="habilidades" id="setHab">
             <span class="input-group-btn">
               <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
             </span>
@@ -63,7 +63,7 @@
       <div class="form-group col-md-6" style="margin-left: 4%">    
         <label for="" class="control-label">Herramientas Requeridas</label>
         <div class="input-group input-group-sm">
-          <input type="text" class="form-control"  name="setHerr" id="setHerr">
+          <input type="text" class="form-control"  name="herramientas" id="setHerr">
             <span class="input-group-btn">
               <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
             </span>
@@ -123,7 +123,7 @@
         <div class="form-group col-md-6" style="margin-left: 4%">
           <label class="control-label">Plazo del proyecto</label>
           <div class=" input-group" style="margin-top: 5%">
-              <input id="range_5" type="text" name="range_5" value="" > 
+              <input id="range_5" type="text" name="plazo" value="" > 
               <div class="input-group-btn">
                 <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;margin-left:10%" name="select_plazo" id="select_plazo">
                   <option selected="Dias" value="Dias">Días</option> 
@@ -195,25 +195,25 @@ $(function () {
  
    fields: {
  
-     descripcion: {
+     titulo: {
  
        validators: {
  
          notEmpty: {
  
-           message: 'El nombre de usuario es requerido'
+           message: 'El título es requerido'
  
          }
  
        }
  
-     },titulo: {
+     },descripcion: {
  
        validators: {
  
          notEmpty: {
  
-           message: 'El nombre de usuario es requerido'
+           message: 'La descripción es requerido'
  
          }
  
@@ -238,6 +238,30 @@ $(function () {
          notEmpty: {
  
            message: 'Seleccione un rango para el presupuesto'
+ 
+         }
+ 
+       }
+ 
+     },habilidades: {
+ 
+       validators: {
+ 
+         notEmpty: {
+ 
+           message: 'Ingrese al menos una habilidad.'
+ 
+         }
+ 
+       }
+ 
+     },herramientas: {
+ 
+       validators: {
+ 
+         notEmpty: {
+ 
+           message: 'Ingrese al menos una herramienta.'
  
          }
  
