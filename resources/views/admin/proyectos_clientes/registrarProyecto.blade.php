@@ -7,24 +7,88 @@
 <link rel="stylesheet" href="css/bootstrapValidator.min.css">
 
 
-<form class="form-horizontal" id="formularioProyecto">
+<form class="form-horizontal" id="formularioProyecto"  role="form" data-toggle="validator">
   <div class="box-body">
     <!-- TITULO -->
-      <div class="form-group col-md-12">
-        <label for="" class="control-label">Título</label>
-          <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
+      <div class="col-md-12">
+        <div class="form-group ">
+          <label for="" class="control-label">Título</label>
+          <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título del proyecto">        
+        </div>
       </div>
 
+    <div class="col-md-12">  
     <!-- DESCRIPCIÓN -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <label for="" class="control-label">Descripción</label>
-          <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder=""></textarea>
+          <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción completa del proyecto"></textarea>
       </div>
+    <!-- INFO ADICIONAL -->
+      <div class="form-group col-md-6" style="margin-left: 4%">
+        <label for="" class="control-label">Información Adicional</label>
+          <textarea type="text" class="form-control" id="informacion_adicional" name="informacion_adicional" placeholder=""></textarea>
+      </div>
+    </div>
 
+    <div class="col-md-12">
+    <!-- HABILIDADES REQUERIDAS -->
+      <div class="form-group col-md-6">
+        <label for="" class="control-label">Habilidades Requeridas</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" name="setHab" id="setHab">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
+            </span>
+        </div><br>
+        <!-- WIDGET -->
+            <div class="box box-default collapsed-box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">Ver habilidades</h3>
+
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body divHabilidades">
+               <input type="hidden" name="habilidades" id="habilidades">
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+      </div>
+    <!-- HERRAMIENTAS REQUERIDAS -->
+      <div class="form-group col-md-6" style="margin-left: 4%">    
+        <label for="" class="control-label">Herramientas Requeridas</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control"  name="setHerr" id="setHerr">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
+            </span>
+        </div><br>
+        <!-- WIDGET -->
+        <div class="box box-default collapsed-box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title">Ver herramientas</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body divHerramientas">
+          <input type="hidden" name="herramientas" id="herramientas">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
     <!-- RANGO -->
       <div class="form-group col-md-6">
         <label for="" class="control-label text-center">Rango de presupuesto</label><br>
-        <div class="form-group text-center" style="margin-top: 5%">
+        <div class="text-center" style="margin-top: 1%">
           <label>
             <input type="radio" name="rango" id="rango"  class="flat-red" value="0 - 50 USD">
             0 - 50 USD
@@ -55,94 +119,29 @@
           </label>
         </div>
       </div>
-
-                <div class="col-sm-6">
-                  <input id="range_5" type="text" name="range_5" value="">
-                </div>
-
-    <!-- HABILIDADES REQUERIDAS -->
-      <div class="form-group col-md-6" style="margin-left: 18px">
-        <label for="" class="control-label">Habilidades Requeridas</label>
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control" name="setHab" id="setHab">
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
-            </span>
-        </div><br>
-
-    <!-- WIDGET -->
-        <div class="box box-default collapsed-box box-solid">
-          <div class="box-header with-border">
-            <h3 class="box-title">Ver habilidades</h3>
-
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-              </button>
-            </div>
-            <!-- /.box-tools -->
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body divHabilidades">
-           <input type="hidden" name="habilidades" id="habilidades">
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
-
-    <!-- INFO ADICIONAL -->
-      <div class="form-group col-md-6">
-        <label for="" class="control-label">Información Adicional</label>
-          <textarea type="text" class="form-control" name="informacion_adicional" id="informacion_adicional"  placeholder=""></textarea>
-      </div>
-
-    <!-- HERRAMIENTAS REQUERIDAS -->
-      <div class="form-group col-md-6" style="margin-left: 18px">    
-        <label for="" class="control-label">Herramientas Requeridas</label>
-        <div class="input-group input-group-sm">
-          <input type="text" class="form-control"  name="setHerr" id="setHerr">
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
-            </span>
-        </div><br>
-        <!-- WIDGET -->
-        <div class="box box-default collapsed-box box-solid">
-          <div class="box-header with-border">
-            <h3 class="box-title">Ver herramientas</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-              </button>
-            </div>
-          </div>
-          <div class="box-body divHerramientas">
-          <input type="hidden" name="herramientas" id="herramientas">
-          </div>
-        </div>
-      </div>
-    
     <!-- PLAZO DEL PROYECTO -->
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6" style="margin-left: 4%">
           <label class="control-label">Plazo del proyecto</label>
-          <div class=" input-group">
-            <input autocomplete="off" type="text" class="form-control" aria-label="..." name="cantidad_plazo" id="cantidad_plazo">
-            <div class="input-group-btn">
-              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;" name="select_plazo" id="select_plazo">
-                <option selected="Dias" value="Dias">Días</option> 
-                <option value="Semanas">Semanas</option>
-                <option value="Meses">Meses</option>>
+          <div class=" input-group" style="margin-top: 5%">
+              <input id="range_5" type="text" name="range_5" value="" > 
+              <div class="input-group-btn">
+                <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;margin-left:10%" name="select_plazo" id="select_plazo">
+                  <option selected="Dias" value="Dias">Días</option> 
+                  <option value="Semanas">Semanas</option>
+                  <option value="Meses">Meses</option>
                 </select> 
             </div>
           </div>          
         </div>
   </div> 
   <input type="submit" class="btn btn-block btn-info" disabled value="Registrar"> 
+
 </form>
 
 <script src="admin/plugins/iCheck/icheck.min.js"></script>
 <script src="admin/js/validator.js"></script>
 <!-- Ion Slider -->
 <script src="admin/plugins/ionslider/ion.rangeSlider.min.js"></script>
-<!-- Ion Slider -->
 <script src="js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript">
@@ -192,16 +191,7 @@ $(function () {
 
 
  $('#formularioProyecto').bootstrapValidator({
-  
-   feedbackIcons: {
- 
-     valid: 'glyphicon glyphicon-ok',
- 
-     invalid: 'glyphicon glyphicon-remove',
- 
-     validating: 'glyphicon glyphicon-refresh'
- 
-   },
+
  
    fields: {
  
@@ -224,6 +214,30 @@ $(function () {
          notEmpty: {
  
            message: 'El nombre de usuario es requerido'
+ 
+         }
+ 
+       }
+ 
+     },informacion_adicional: {
+ 
+       validators: {
+ 
+         notEmpty: {
+ 
+           message: 'La información adicional es requerida'
+ 
+         }
+ 
+       }
+ 
+     },rango: {
+ 
+       validators: {
+ 
+         notEmpty: {
+ 
+           message: 'Seleccione un rango para el presupuesto'
  
          }
  

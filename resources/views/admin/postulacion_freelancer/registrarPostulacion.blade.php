@@ -1,4 +1,10 @@
 <link rel="stylesheet" href="admin/plugins/iCheck/all.css">
+<!-- Ion Slider -->
+<link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.css">
+<!-- ion slider Nice -->
+<link rel="stylesheet" href="admin/plugins/ionslider/ion.rangeSlider.skinNice.css">
+<!-- Bootstrap validator -->
+<link rel="stylesheet" href="css/bootstrapValidator.min.css">
 
 <form class="form-horizontal" role="form" id="myForm">
   <div class="box-body">
@@ -9,23 +15,16 @@
         <label for="" class="control-label">Propuesta Simple</label>
           <textarea type="text" class="form-control" id="propuesta_simple" placeholder="Descripción..."></textarea>
       </div>
-
-    <!-- PRECIO -->
-      <div class="form-group col-md-6" style="margin-left: 18px">
-        <label for="" class="control-label">Precio</label>
-          <input type="text" class="form-control" id="precio" placeholder="">
-      </div>
-  </div>
- 
-  <div class="col-md-12">
     <!-- P. EXTENSA -->
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-6" style="margin-left: 4%">
         <label for="" class="control-label">Propuesta Extensa</label>
           <textarea type="text" class="form-control" id="propuesta_extensa" placeholder="Descripción..."></textarea>
       </div>
+  </div>
 
+  <div class="col-md-12">
     <!-- RECURSOS NECESARIOS -->
-      <div class=" form-group col-md-6" style="margin-left: 18px">    
+      <div class=" form-group col-md-6">    
         <label for="" class="control-label">Recursos Necesarios</label>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" id="setRec">
@@ -33,61 +32,64 @@
               <button type="button" class="btn btn-info btn-flat" onclick="addItemRec('.divRecursos','#setRec','#recursos');">Agregar</button>
             </span>
         </div><br>
-
         <div class="box box-default collapsed-box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title">Ver recursos</h3>
-
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
               </button>
             </div>
-            <!-- /.box-tools -->
           </div>
-          <!-- /.box-header -->
           <div class="box-body divRecursos">
             <input type="hidden" name="recursos" id="recursos">
           </div>
-          <!-- /.box-body -->
         </div>
-        <!-- /.box -->
       </div>
-  </div>
-        
-  <div class="col-md-12">
     <!-- VALOR AGREGADO -->
-      <div class="form-group col-md-6"> 
+      <div class="form-group col-md-6" style="margin-left: 4%"> 
           <label for="" class="control-label">Valor Agregado al Proyecto</label>
             <textarea type="text" class="form-control" id="valor_agregado" placeholder=""></textarea>
       </div>
-
+  </div>
+        
+  <div class="col-md-12">    
     <!-- SERVICIOS ADICIONALES -->
-      <div class="form-group col-md-6" style="margin-left: 18px">
+      <div class="form-group col-md-6">
         <label for="" class="control-label">Servicios Adicionales</label>
           <textarea type="text" class="form-control" id="servicios_adicionales" placeholder=""></textarea>
       </div>
+    <!-- TIEMPO -->
+      <div class="form-group col-md-6" style="margin-left: 4%">
+        <label class="control-label">Estimación de Tiempo</label>
+        <div class=" input-group" style="margin-top: 5%">
+            <input id="tiempo" type="text" name="tiempo" value="" > 
+            <div class="input-group-btn">
+              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;margin-left:10%" name="select_tiempo" id="select_tiempo">
+                <option selected="Dias" value="Dias">Días</option> 
+                <option value="Semanas">Semanas</option>
+                <option value="Meses">Meses</option>
+              </select> 
+          </div>
+        </div>          
+      </div>
   </div>
 
-    <!-- TIEMPO -->
-   
-      <div class="form-group col-md-12">
-        <label class="control-label">Estimación de Tiempo</label>
-          <div class=" input-group">
-            <input autocomplete="off" type="text" class="form-control" aria-label="..." id="cantidad_tiempo">
-            <div class="input-group-btn">
-              <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;" id="select_tiempo">
-                <option selected="" value="Dias">Días</option> 
-                <option value="Semanas">Semanas</option>
-                <option value="Meses">Meses</option>>
-              </select> 
-            </div>
-          </div>          
+  <div class="col-md-12">
+    <!-- PRECIO -->
+      <div class="form-group col-md-6">
+        <label class="control-label">Precio</label>
+        <div class="form-group" style="margin-top: 5%; margin-right:2%; margin-left: 2%">
+            <input id="precio"  type="text" name="precio" value="" >     
+        </div>          
       </div>
+  </div>
 
 </form>
 
 <script src="admin/plugins/iCheck/icheck.min.js"></script>
 <script src="admin/js/validator.js"></script>
+<!-- Ion Slider -->
+<script src="admin/plugins/ionslider/ion.rangeSlider.min.js"></script>
 
 <script type="text/javascript">
 
@@ -107,6 +109,7 @@
       radioClass: 'iradio_flat-green'
     });
 
+
    var recursosArray='';
    function addItemRec(div,inputGet,inputSet){  
     if($(inputGet).val()!=''){
@@ -116,4 +119,31 @@
         $(inputGet).val('');
     }
    }
+
+   $(function () {
+       $("#precio").ionRangeSlider({
+      min: 0,
+      max: 10,
+      type: 'single',
+      step: 0.1,
+      postfix: " mm",
+      prettify: false,
+      hasGrid: true
+    });
+ });    
+
+   $(function () {
+       $("#tiempo").ionRangeSlider({
+      min: 0,
+      max: 10,
+      type: 'single',
+      step: 0.1,
+      postfix: " mm",
+      prettify: false,
+      hasGrid: true
+    });
+ });    
+
+
+
 </script>
