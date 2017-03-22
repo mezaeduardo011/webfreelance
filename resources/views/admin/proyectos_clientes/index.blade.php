@@ -112,35 +112,14 @@ $.ajax({
 
 	function registrar(){
 
-		    $.confirm({
+		    $.dialog({
 			    title: 'Registrar Proyecto',
 			    content: 'url: registrarProyecto',
+          closeIcon: true,
+          closeIconClass: 'fa fa-close',
 			    confirmButton: false,
 			    cancelButton: false,
 			    columnClass: 'col-md-12',
-			    buttons: {
-			        specialKey: {
-			            text: 'Cancelar',
-			            keys: ['shift', 'alt'],
-			            action: function(){
-				            }
-			        },
-			        somethingElse: {
-			            text: 'Registrar',
-			            btnClass: 'btn-blue',
-			            keys: ['enter'],
-			            action: function(){
-			               sendDataProyecto();
-                      $( "#formularioProyecto" ).submit();   
-                      $('#formularioProyecto').on('valid.bs.validator invalid.bs.validator', function (e) {
-                      if (e.relatedTarget.name === 'userName') {
-                        e.type === 'valid' ? console.log("valid!") : console.log("invalid!")
-                      }
-                    })
-                      $(this).preventDefault();
-			            }
-			        }
-			    }
 			});
 	} 
 

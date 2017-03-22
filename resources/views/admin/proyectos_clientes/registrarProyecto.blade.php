@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/bootstrapValidator.min.css">
 
 
-<form class="form-horizontal" role="form" id="formularioProyecto">
+<form class="form-horizontal" id="formularioProyecto">
   <div class="box-body">
     <!-- TITULO -->
       <div class="form-group col-md-12">
@@ -134,7 +134,8 @@
             </div>
           </div>          
         </div>
-  </div>  
+  </div> 
+  <input type="submit" class="btn btn-block btn-info" disabled value="Registrar"> 
 </form>
 
 <script src="admin/plugins/iCheck/icheck.min.js"></script>
@@ -191,9 +192,7 @@ $(function () {
 
 
  $('#formularioProyecto').bootstrapValidator({
- 
-   message: 'Este valor no es valido',
- 
+  
    feedbackIcons: {
  
      valid: 'glyphicon glyphicon-ok',
@@ -235,4 +234,18 @@ $(function () {
    }
  
 });   
+
+
+
+   $('#formularioProyecto').on('status.field.bv', function(e, data) {
+        formIsValid = true;
+        $('.form-group',$(this)).each( function() {
+            formIsValid = formIsValid && $(this).hasClass('has-success');
+        });
+        if(formIsValid) {
+            $('.submit-button', $(this)).attr('disabled', false);
+        } else {
+            $('.submit-button', $(this)).attr('disabled', true);
+        }
+    });
 </script>
