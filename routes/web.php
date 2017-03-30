@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/','FrontController@testExcel');
 
 Route::get('/blank','FrontController@blank');
 Route::get('/login','FrontController@login');
@@ -23,5 +22,7 @@ Route::get('proyectos_freelancer_index','FrontController@postulacion_freelancer_
 Route::get('registrarPostulacion','FrontController@registrarPostulacion');
 Route::get('verPostulaciones/{id_proyecto}','FrontController@verPostulaciones');
 Route::get('postulaciones','FrontController@vistaPostulaciones');
+
+
 
 
