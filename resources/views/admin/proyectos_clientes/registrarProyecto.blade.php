@@ -10,7 +10,6 @@
 <!-- Dropzone -->
 <link rel="stylesheet" href="admin/css/dropzone.css">
 <link rel="stylesheet" href="admin/css/basicDropzone.css">
-
  
 <div class="wizard">
     <div class="wizard-inner">
@@ -51,16 +50,17 @@
     </div>
         <div class="tab-content">
             <div class="tab-pane active" role="tabpanel" id="step1">
-                <form class="form-horizontal" id="formularioProyecto">
-                    <!-- TITULO -->
-                      <div class="col-md-12">
+                <form class="form-horizontal col-md-12" id="formularioProyecto">    
+                    <div class="col-md-12"> 
+                      <!-- TITULO -->                  
                         <div class="form-group MiValidador">
                           <label for="" class="control-label">Título</label>
-                          <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título del proyecto">        
+                          <input type="text" class="form-control col-md-12" id="titulo" name="titulo" placeholder="Título del proyecto">        
                         </div>
-                      </div>    
-                      <div class="col-md-12">  
-                      <!-- DESCRIPCIÓN -->
+                    </div>     
+                    
+                    <div class="col-md-12">
+                      <!-- DESCRIPCIÓN -->                     
                         <div class="form-group col-md-6 MiValidador">
                           <label for="" class="control-label">Descripción</label>
                             <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción completa del proyecto"></textarea>
@@ -68,65 +68,57 @@
                       <!-- INFO ADICIONAL -->
                         <div class="form-group col-md-6 MiValidador" style="margin-left: 4%">
                           <label for="" class="control-label">Información Adicional</label>
-                            <textarea type="text" class="form-control" id="informacion_adicional" name="informacion_adicional" placeholder=""></textarea>
+                          <textarea type="text" class="form-control" id="informacion_adicional" name="informacion_adicional" placeholder=""></textarea>
                         </div>
-                      </div>        
+                    </div>  
 
                     <div class="col-md-12">
-                    <!-- HABILIDADES REQUERIDAS -->
-                      <div class="form-group col-md-6 divHabilidadesForm">
-                        <label for="" class="control-label">Habilidades Requeridas</label>
-                        <div class="input-group input-group-sm">
-                          <input type="text" class="form-control" name="setHab" id="setHab">
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
-                            </span>
-                        </div><br>
-                        <!-- WIDGET -->
-                            <div class="box box-default collapsed-box box-solid">
-                              <div class="box-header with-border">
-                                <h3 class="box-title">Ver habilidades</h3>
-
-                                <div class="box-tools pull-right">
-                                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                                  </button>
+                      <!-- HABILIDADES REQUERIDAS -->
+                        <div class="form-group col-md-6 divHabilidadesForm">
+                          <label for="" class="control-label">Habilidades Requeridas</label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" name="setHab" id="setHab">
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHabilidades','#setHab','#habilidades','Habilidades');">Agregar</button>
+                              </span>
+                          </div><br>
+                          <!-- WIDGET -->
+                              <div class="box box-default collapsed-box box-solid" style="margin-top: -3%" >
+                                <div class="box-header with-border" style="height: 35px; background: #00ACD6">
+                                  <h3 class="box-title" style="color: white;font-size: 12px">Ver habilidades</h3>
+                                  <!-- /.box-tools -->
                                 </div>
-                                <!-- /.box-tools -->
+                                <!-- /.box-header -->
+                                <div class="box-body divHabilidades" style="display: block">
+                                 <input type="hidden" name="habilidades" id="habilidades">
+                                </div>
+                                <!-- /.box-body -->
                               </div>
-                              <!-- /.box-header -->
-                              <div class="box-body divHabilidades">
-                               <input type="hidden" name="habilidades" id="habilidades">
-                              </div>
-                              <!-- /.box-body -->
+                              <!-- /.box -->
+                        </div>
+                      <!-- HERRAMIENTAS REQUERIDAS -->
+                        <div class="form-group col-md-6 divHerramientasForm" style="margin-left: 4%">    
+                          <label for="" class="control-label">Herramientas Requeridas</label>
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control"  name="setHerr" id="setHerr">
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
+                              </span>
+                          </div><br>
+                          <!-- WIDGET -->
+                          <div class="box box-default collapsed-box box-solid" style="margin-top: -3%">
+                            <div class="box-header with-border" style="height: 35px; background: #00ACD6">
+                              <h3 class="box-title" style="color: white;font-size: 12px">Ver herramientas</h3>
                             </div>
-                            <!-- /.box -->
-                      </div>
-                    <!-- HERRAMIENTAS REQUERIDAS -->
-                      <div class="form-group col-md-6 divHerramientasForm" style="margin-left: 4%">    
-                        <label for="" class="control-label">Herramientas Requeridas</label>
-                        <div class="input-group input-group-sm">
-                          <input type="text" class="form-control"  name="setHerr" id="setHerr">
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-info btn-flat" onclick="addItem('.divHerramientas','#setHerr','#herramientas','Herramientas');">Agregar</button>
-                            </span>
-                        </div><br>
-                        <!-- WIDGET -->
-                        <div class="box box-default collapsed-box box-solid">
-                          <div class="box-header with-border">
-                            <h3 class="box-title">Ver herramientas</h3>
-                            <div class="box-tools pull-right">
-                              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                              </button>
+                            <div class="box-body divHerramientas" style="display: block">
+                            <input type="hidden" name="herramientas" id="herramientas">
                             </div>
-                          </div>
-                          <div class="box-body divHerramientas">
-                          <input type="hidden" name="herramientas" id="herramientas">
                           </div>
                         </div>
-                      </div>
-                    </div>    
-                    <div class="col-md-12">
-                      <!-- RANGO -->
+                    </div>   
+                    
+                    <div class="col-md-12">   
+                      <!-- RANGO -->                    
                       <div class="form-group col-md-6 has-success">
                         <label for="" class="control-label text-center">Rango de presupuesto</label><br>
                         <div class="text-center" style="margin-top: 1%">
@@ -174,7 +166,7 @@
                           </div>
                         </div>          
                       </div>
-                    </div>                                                                                   
+                    </div>                                                          
                 </form>
                 <ul class="list-inline pull-right">
                     <li><button type="button" class="btn btn-primary next-step">Guardar y continuar</button></li>
@@ -193,8 +185,120 @@
                 </ul>
             </div>
             <div class="tab-pane" role="tabpanel" id="step3">
-                <h3>Step 3</h3>
-                <p>This is step 3</p>
+              <div>
+                <section class="content">     
+                  <!-- START ACCORDION -->
+                    <div class="row">
+                      <div class="col-md-12" style="margin-top: -5%">
+                        <div class="box box-solid">
+                          <div class="box-header with-border">
+                            <h3 class="box-title">Collapsible Accordion</h3>
+                          </div>
+                          <!-- /.box-header -->
+                          <div class="box-body">
+                            <div class="box-group" id="accordion">
+                              <div class="panel box box-primary">
+                                <div class="box-header with-border">
+                                  <h4 class="box-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Collapsible Group</a>
+                                  </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                  <div class="box-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                    labore sustainable VHS.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel box box-danger">
+                                <div class="box-header with-border">
+                                  <h4 class="box-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Collapsible Group Danger</a>
+                                  </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                  <div class="box-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                    labore sustainable VHS.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel box box-success">
+                                <div class="box-header with-border">
+                                  <h4 class="box-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Collapsible Group Success
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                  <div class="box-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                    labore sustainable VHS.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel box box-primary">
+                                <div class="box-header with-border">
+                                  <h4 class="box-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Collapsible Group Item</a>
+                                  </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse">
+                                  <div class="box-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                    labore sustainable VHS.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel box box-danger">
+                                <div class="box-header with-border">
+                                  <h4 class="box-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Collapsible Group Danger
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse">
+                                  <div class="box-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                    labore sustainable VHS.
+                                  </div>
+                                </div>
+                              </div>            
+                            </div>
+                          </div>
+                          <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                      </div>
+                    </div>
+                  <!-- END ACCORDION -->  
+                </section>
+              </div>
                 <ul class="list-inline pull-right">
                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                     <li><button type="button" class="btn btn-default next-step">Skip</button></li>
@@ -270,7 +374,7 @@
    
            notEmpty: {
    
-             message: 'El título es requerido'
+             message: 'El título es requerido.'
    
            }
    
@@ -282,7 +386,7 @@
    
            notEmpty: {
    
-             message: 'La descripción es requerido'
+             message: 'La descripción es requerida.'
    
            }
    
@@ -317,8 +421,6 @@
      }
    
   });   
-
-
 
      $('#formularioProyecto').on('status.field.bv', function(e, data) {
           formIsValid = true;
