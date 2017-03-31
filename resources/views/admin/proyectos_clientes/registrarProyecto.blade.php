@@ -222,7 +222,7 @@
       <!-- DESCRIPCIÓN -->     
         <div class="form-group col-md-12">
           <label for="" class="control-label">Descripción</label>
-            <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción completa de la actividad"></textarea> <br> 
+            <textarea type="text" class="form-control" id="descripcion_actividad" name="descripcion_actividad" placeholder="Descripción completa de la actividad"></textarea> <br> 
         </div>
 
         <div class="form-group col-md-12" style="width:30%; margin-left: 30%;margin-top:1%">
@@ -249,7 +249,6 @@
                           <!-- /.box-header -->
                           <div class="box-body">
                             <div class="box-group" id="accordion">
-                              <div class="box-header" onclick="setContent()"> sadsad</div>
                                <!-- /.contenido de los procesos -->
                             </div>
                           </div>
@@ -429,7 +428,7 @@ if (ul==true) {agregarUl($("#proceso").val());}
 function mostrarDivProcesos(){
 $("#divProceso").show();
 $("#divBotones").hide();
-
+$("#proceso").val("");
 }
 function registrarActividad(){
   var nombreProceso = $("#proceso").val();
@@ -449,9 +448,9 @@ function agregarUl(nombreProceso){
 
  function agregarDiv (nombreProceso,contTab) {
   var div1 = '<div class="panel box box-primary" id="tab_'+contTab +'">'; 
-  var div2 = '<div class="box-header with-border" data-toggle="collapse"  data-parent="#accordion" href="#collapse'+contTab +'">';
+  var div2 = '<div class="box-header with-border" onclick="setContent($(this))" data-toggle="collapse"  data-parent="#accordion" href="#collapse'+contTab +'">';
   var h4  = '<h4 class="box-title">';
-  var titulo = '<a >'+nombreProceso+'</a>';
+  var titulo = '<a  >'+nombreProceso+'</a>';
   var h4Cierre = '</h4>';
   var div3 = '<div id="collapse'+contTab +'" class="panel-collapse collapse">';
   var div4 = '<div class="box-body">';
@@ -476,7 +475,7 @@ function agregarUl(nombreProceso){
   var td1 = '<td>1.</td>';
   var td2 = '<td>'+ $("#actividad").val() +'</td>';
   var td3 = ' <td>'+ $("#actor").val()+'</td>';
-  var td4 = '<td>'+ $("#descripcion").val()+'</td>';
+  var td4 = '<td>'+ $("#descripcion_actividad").val()+'</td>';
   var td5 = ' <td></td>';
   var trCierre = '</tr>';
   var contenido = tr+td1+td2+td3+td4+td5+trCierre;
@@ -486,19 +485,20 @@ function agregarUl(nombreProceso){
  }
 
 
- function getEventTarget(e) {
-    e = e || window.event;
-    return e.target || e.srcElement; 
+//  function getEventTarget(e) {
+//     e = e || window.event;
+//     return e.target || e.srcElement; 
+// }
+
+// var divTitle = document.getElementsByClassName('box-header');
+// divTitle.onclick = function(event) {
+//     var target = getEventTarget(event);
+//     alert(target.innerHTML);
+//     setValueProceso(target.innerHTML)
+// };
+
+function setContent(t){
+   setValueProceso(t.find("a").text());
 }
 
-var divTitle = document.getElementsByClassName('box-header');
-divTitle.onclick = function(event) {
-    var target = getEventTarget(event);
-    alert(target.innerHTML);
-    setValueProceso(target.innerHTML)
-};
-
-function setContent(){
-  
-}
 </script>
