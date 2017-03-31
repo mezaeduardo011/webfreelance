@@ -196,10 +196,10 @@
                 <h3>Step 3</h3>
                 <p>This is step 3</p>
                 <ul class="list-inline pull-right">
-                    <li><button type="button" class="btn btn-default prev-step">Regresar</button></li>
-                    <li><button type="button" class="btn btn-default next-step">Saltar</button></li>
-                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Continuar</button></li>
-                    <br><br><br>
+                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                    <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                    <br><br>
                 </ul>
             </div>
             <div class="tab-pane" role="tabpanel" id="complete">
