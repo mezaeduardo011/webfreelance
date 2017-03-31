@@ -186,109 +186,71 @@
             </div>
             <div class="tab-pane" role="tabpanel" id="step3">
               <div>
+<form class="form-horizontal" id="formularioRequerimientos" role="form" data-toggle="validator">
+  <div class="box-body">
+    <!-- PROCESO --> 
+    <div id="divProceso">
+      <div class="form-group col-md-12">    
+        <label for="" class="control-label">Proceso</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" name="proceso" id="proceso">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-info btn-flat" onclick="mostrarDivActividad(true)">Agregar</button>
+            </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="divActividad" hidden="">
+      <div class="form-group col-md-12"> 
+        <h3>Actividad para el proceso:<span id="nombreProceso"></span> </h3>
+      <!-- ACTIVIDAD -->
+        <div class="form-group col-md-6">    
+          <label for="" class="control-label">Actividad</label>
+          <div class="input-group input-group-sm col-md-12">
+            <input type="text" class="form-control" name="actividad" id="actividad">
+          </div>
+        </div>
+      <!-- ACTOR -->
+        <div class="form-group col-md-6" style="margin-left: 4%">    
+          <label for="" class="control-label">Actor</label>
+          <div class="input-group input-group-sm col-md-12">
+            <input type="text" class="form-control" name="actor" id="actor">
+          </div>
+        </div>
+      </div>
+      <!-- DESCRIPCIÓN -->     
+        <div class="form-group col-md-12">
+          <label for="" class="control-label">Descripción</label>
+            <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción completa de la actividad"></textarea> <br> 
+        </div>
+
+        <div class="form-group col-md-12" style="width:30%; margin-left: 30%;margin-top:1%">
+          <button type="button" class="btn btn-block btn-primary btn-sm" onclick="agregarContenido()">Registrar actividad</button>
+        </div>
+    </div>   
+  </div>
+</form>
+
+  <div id="divBotones" class="form-group col-md-12" hidden="">
+    <div class="col-md-6"><button type="button" class="btn btn-block btn-primary btn-sm" onclick="mostrarDivActividad(false)">Registrar otra actividad</button></div>
+    <div class="col-md-6"><button type="button" class="btn btn-block btn-primary btn-sm" onclick="mostrarDivProcesos()">Registrar otro proceso</button></div>
+  </div>
+
+
                 <section class="content">     
                   <!-- START ACCORDION -->
                     <div class="row">
-                      <div class="col-md-12" style="margin-top: -5%">
+                      <div class="col-md-12" >
                         <div class="box box-solid">
                           <div class="box-header with-border">
-                            <h3 class="box-title">Collapsible Accordion</h3>
+                            <h4 class="box-title">Procesos agregados</h4>
                           </div>
                           <!-- /.box-header -->
                           <div class="box-body">
                             <div class="box-group" id="accordion">
-                              <div class="panel box box-primary">
-                                <div class="box-header with-border">
-                                  <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Collapsible Group</a>
-                                  </h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse">
-                                  <div class="box-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                    labore sustainable VHS.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="panel box box-danger">
-                                <div class="box-header with-border">
-                                  <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Collapsible Group Danger</a>
-                                  </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                  <div class="box-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                    labore sustainable VHS.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="panel box box-success">
-                                <div class="box-header with-border">
-                                  <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Collapsible Group Success
-                                    </a>
-                                  </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse">
-                                  <div class="box-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                    labore sustainable VHS.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="panel box box-primary">
-                                <div class="box-header with-border">
-                                  <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Collapsible Group Item</a>
-                                  </h4>
-                                </div>
-                                <div id="collapseFour" class="panel-collapse collapse">
-                                  <div class="box-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                    labore sustainable VHS.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="panel box box-danger">
-                                <div class="box-header with-border">
-                                  <h4 class="box-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Collapsible Group Danger
-                                    </a>
-                                  </h4>
-                                </div>
-                                <div id="collapseFive" class="panel-collapse collapse">
-                                  <div class="box-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                    labore sustainable VHS.
-                                  </div>
-                                </div>
-                              </div>            
+                              <div class="box-header" onclick="setContent()"> sadsad</div>
+                               <!-- /.contenido de los procesos -->
                             </div>
                           </div>
                           <!-- /.box-body -->
@@ -452,86 +414,91 @@
 
 <script type="text/javascript">
 //script de step 3
-// var contTab = 0;
-// function mostrarDivActividad(ul){
+var contTab = 0;
+function mostrarDivActividad(ul){
 
-// $("#divActividad").show();
-// $("#divProceso").hide();
-// $("#divBotones").hide();
-// $("#nombreProceso").empty();
-// $("#nombreProceso").append(  $("#proceso").val()  );
-// if (ul==true) {agregarUl($("#proceso").val());}
+$("#divActividad").show();
+$("#divProceso").hide();
+$("#divBotones").hide();
+$("#nombreProceso").empty();
+$("#nombreProceso").append(  $("#proceso").val()  );
+if (ul==true) {agregarUl($("#proceso").val());}
 
-// }
+}
 
-// function mostrarDivProcesos(){
-// $("#divProceso").show();
-// $("#divBotones").hide();
+function mostrarDivProcesos(){
+$("#divProceso").show();
+$("#divBotones").hide();
 
-// }
-// function registrarActividad(){
-//   var nombreProceso = $("#proceso").val();
-//   agregarDiv();
-// }
+}
+function registrarActividad(){
+  var nombreProceso = $("#proceso").val();
+  agregarDiv();
+}
 
-// function agregarUl(nombreProceso){
-//     contTab = contTab+1;
-//     $("#ulProcesos").append('<li class="active"><a href="#tab_'+contTab+'" data-toggle="tab">'+nombreProceso+'</a></li>');
-//     agregarDiv(nombreProceso,contTab);
-//  }   
+function agregarUl(nombreProceso){
+    contTab = contTab+1;
+    agregarDiv(nombreProceso,contTab);
+ }   
 
-//  function setValueProceso(value){
-//    $('#proceso').val("");
-//    $('#proceso').val(value.replace(/\s/g, ''));
-//  }
-
-
-//  function agregarDiv (nombreProceso,contTab) {
-//   var div1 = '<div class="tab-pane" id="tab_'+contTab +'">'; 
-//   var div2 = '<div class="row">';
-//   var div3 = '<div class="col-md-12">';
-//   var div4 = '<div class="box">';
-//   var divCierre = '</div>';
-//   var div5 = '<div class="box-header with-border">';
-//   var div6 = '<div class="box-body">';
-//   var tabla = '<table class="table table-bordered" id="'+ nombreProceso.replace(/\s/g, '') +'" >';
-//   var tr = '<tr>';
-//   var th1 = '<th style="width: 10px">#</th>';
-//   var th2 = '<th>Actividad</th>';
-//   var th3 = '<th>Actor</th>';
-//   var th4 = '<th>Descripción</th>';
-//   var th5 = '<th>Acciones</th>';
-//   var trCierre = '</tr>';
-//   var trTitulos = tr+th1+th2+th3+th4+th5+trCierre;
-//   var tablaCierre = '</table>';
-//   var contenidoTabla = tabla+trTitulos+tablaCierre;
-//   var contenido = div1+div2+div3+div4+div5+divCierre+div6+contenidoTabla+divCierre+divCierre+divCierre+divCierre;
-//   $("#contenidoProcesos").append(contenido);
-//  }
-
-//  function agregarContenido () {
-//   var tr = '<tr>';
-//   var td1 = '<td>1.</td>';
-//   var td2 = '<td>'+ $("#actividad").val() +'</td>';
-//   var td3 = ' <td>'+ $("#actor").val()+'</td>';
-//   var td4 = '<td>'+ $("#descripcion").val()+'</td>';
-//   var td5 = ' <td></td>';
-//   var trCierre = '</tr>';
-//   var contenido = tr+td1+td2+td3+td4+td5+trCierre;
-//   $("#"+$("#proceso").val().replace(/\s/g, '')).append(contenido);
-//   $("#divActividad").hide();
-//   $("#divBotones").show();
-//  }
+ function setValueProceso(value){
+   $('#proceso').val("");
+   $('#proceso').val(value.replace(/\s/g, ''));
+ }
 
 
-//  function getEventTarget(e) {
-//     e = e || window.event;
-//     return e.target || e.srcElement; 
-// }
+ function agregarDiv (nombreProceso,contTab) {
+  var div1 = '<div class="panel box box-primary" id="tab_'+contTab +'">'; 
+  var div2 = '<div class="box-header with-border" data-toggle="collapse"  data-parent="#accordion" href="#collapse'+contTab +'">';
+  var h4  = '<h4 class="box-title">';
+  var titulo = '<a >'+nombreProceso+'</a>';
+  var h4Cierre = '</h4>';
+  var div3 = '<div id="collapse'+contTab +'" class="panel-collapse collapse">';
+  var div4 = '<div class="box-body">';
+  var divCierre = '</div>';
+  var tabla = '<table class="table table-bordered" id="'+ nombreProceso.replace(/\s/g, '') +'" >';
+  var tr = '<tr>';
+  var th1 = '<th style="width: 10px">#</th>';
+  var th2 = '<th>Actividad</th>';
+  var th3 = '<th>Actor</th>';
+  var th4 = '<th>Descripción</th>';
+  var th5 = '<th>Acciones</th>';
+  var trCierre = '</tr>';
+  var trTitulos = tr+th1+th2+th3+th4+th5+trCierre;
+  var tablaCierre = '</table>';
+  var contenidoTabla = tabla+trTitulos+tablaCierre;
+  var contenido = div1+div2+h4+titulo+h4Cierre+div3+div4+divCierre+contenidoTabla+divCierre+divCierre;
+  $("#accordion").append(contenido);
+ }
 
-// var ul = document.getElementById('ulProcesos');
-// ul.onclick = function(event) {
-//     var target = getEventTarget(event);
-//     setValueProceso(target.innerHTML)
-// };
+ function agregarContenido () {
+  var tr = '<tr>';
+  var td1 = '<td>1.</td>';
+  var td2 = '<td>'+ $("#actividad").val() +'</td>';
+  var td3 = ' <td>'+ $("#actor").val()+'</td>';
+  var td4 = '<td>'+ $("#descripcion").val()+'</td>';
+  var td5 = ' <td></td>';
+  var trCierre = '</tr>';
+  var contenido = tr+td1+td2+td3+td4+td5+trCierre;
+  $("#"+$("#proceso").val().replace(/\s/g, '')).append(contenido);
+  $("#divActividad").hide();
+  $("#divBotones").show();
+ }
+
+
+ function getEventTarget(e) {
+    e = e || window.event;
+    return e.target || e.srcElement; 
+}
+
+var divTitle = document.getElementsByClassName('box-header');
+divTitle.onclick = function(event) {
+    var target = getEventTarget(event);
+    alert(target.innerHTML);
+    setValueProceso(target.innerHTML)
+};
+
+function setContent(){
+  
+}
 </script>
