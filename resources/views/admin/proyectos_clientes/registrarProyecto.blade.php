@@ -17,7 +17,7 @@
         <ul class="nav nav-tabs" role="tablist">
 
             <li role="presentation" class="active">
-                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Datos">
                     <span class="round-tab">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </span>
@@ -25,27 +25,20 @@
             </li>
 
             <li role="presentation" class="disabled">
-                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Documentos">
                     <span class="round-tab">
                         <i class="glyphicon glyphicon-folder-open"></i>
                     </span>
                 </a>
             </li>
             <li role="presentation" class="disabled">
-                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Requerimientos">
                     <span class="round-tab">
                         <i class="glyphicon glyphicon-file"></i>
                     </span>
                 </a>
             </li>
 
-            <li role="presentation" class="disabled">
-                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
-                    <span class="round-tab">
-                        <i class="glyphicon glyphicon-ok"></i>
-                    </span>
-                </a>
-            </li>
         </ul>
     </div>
         <div class="tab-content">
@@ -156,7 +149,7 @@
                       <div class="form-group MiValidador col-md-6" style="margin-left: 4%">
                         <label class="control-label">Plazo del proyecto</label>
                         <div class=" input-group" style="margin-top: 5%">
-                            <input id="cantidad_plazo" type="text" name="cantidad_plazo" value="" > 
+                            <input id="cantidad_plazo" type="text" name="cantidad_plazo"> 
                             <div class="input-group-btn">
                               <select class="form-control btn btn-default dropdown-toggle" style="width: 100px;margin-left:10%" name="select_plazo" id="select_plazo">
                                 <option selected="Dias" value="Dias">Días</option> 
@@ -169,41 +162,118 @@
                     </div>                                                          
                 </form>
                 <ul class="list-inline pull-right">
-                    <li><button type="button" class="btn btn-primary next-step">Guardar y continuar</button></li>
+                    <li>
+                        <button type="button" class="btn btn-primary next-step"  id="buttonSave1" hidden="" onclick="sendDataProyecto();"  >Guardar y continuar</button>
+                        <button type="button" class="btn btn-primary next-step"  id="buttonSave2" style="display: none" onclick="sendDataProyecto()">Actualizar y continuar</button>
+                    </li>
                     <br><br><br>
                 </ul>
             </div>
-            <div class="tab-pane" role="tabpanel" id="step2">
-                    <form action= "/file-upload" class= "dropzone" id= "filesDrop" >
+            <div class="tab-pane" role="tabpanel" id="step2" >
+                    <div class="text-center" id="divLoadingStep2">
+                      <img src="/admin/img/loading.gif" width="10%"> 
+                      <p class="login-box-msg">Registrando datos de tu proyecto</p>   
+                      <br><br><br><br>
+                    </div>                 
+                    <div class="text-center" id="divMensajeSuccessStep2" style="display: none">
+                      <i class="fa fa-check-circle-o fa-5x" style="color:#5BC0DE"></i>
+                      <h4 class="login-box-msg">El proyecto se ha registrado exitosamente.</h4>   
+                      <p class="login-box-msg">Deseas continuar con el registro?</p>
+                      <div class="col-md-12">
+                          <div class="col-md-6">
+                            <button class="btn bg-navy btn-sm pull-right" type="button"  onclick="showAll()" id="conL">Continuar despues</button>
+                          </div>
+                          <div class="col-md-6">
+                            <button class="btn btn-primary btn-sm pull-left" type="button" onclick="showUl();" id="reg">Continuar registrando</button>
+                          </div>                          
+                      </div>
+                      <br><br><br><br>
+                    </div>   
+
+                <div id="divStep2" style="display: none">
+                    <h4 class="login-box-msg">Documentos</h4>
+                    <p class="login-box-msg">Puedes subir archivos para mas documentación para tu proyecto </p>
+                    <form action= "/file-upload" class= "dropzone" id= "filesDrop">
                       <div class="dz-message" data-dz-message><span>Click para seleccionar los archivos</span></div>
+                                          
                     </form>
+
                     <br>
-                <ul class="list-inline pull-right">
-                    <li><button type="button" class="btn btn-default prev-step">Regresar</button></li>
-                    <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
-                    <br><br><br>
-                </ul>
+                    <ul class="list-inline pull-right">
+                        <li><button type="button" class="btn btn-default prev-step" onclick="editData()">Editar datos</button></li>
+                        <li><button type="button" class="btn btn-primary next-step" >Continuar</button></li>
+                        <br><br><br>
+                    </ul>                  
+                </div>                 
             </div>
             <div class="tab-pane" role="tabpanel" id="step3">
               <div>
 <form class="form-horizontal" id="formularioRequerimientos" role="form" data-toggle="validator">
   <div class="box-body">
     <!-- PROCESO --> 
+    <div class="alert alert-info alert-dismissible" id="infoRequerimientos">
+        <h4>
+        Registra los requerimientos de tu proyecto.
+        </h4>        
+        <p>Cada proceso y actividad que agregues se ira registrando en nuestra base de datos.</p>
+        <p>El freelancer que consulte tu proyecto podra descargar un archivo excel con todos estos datos.</p>
+        <p>Cada vez que edites estos datos, el freelancer lo vera reflejado en el documento.</p>
+        <p>Los datos que registraras son procesos, actividades para cada proceso, participantes y descripcion de cada actividad.</p>
+        <p>Ejemplo:</p>
+        <ul>
+          <li>
+          Proceso 1
+            <ul>
+            <li>Actividad 1</li>
+            <li>Actor de esta actividad</li>
+            <li>Descripcion de la actividad</li>
+            </ul>
+          </li>
+          <li>
+          Proceso 2
+            <ul>
+            <li>Actividad 1</li>
+            <li>Actor de esta actividad</li>
+            <li>Descripcion de la actividad</li>
+            </ul>
+            <ul>
+            <li>Actividad 2</li>
+            <li>Actor de esta actividad</li>
+            <li>Descripcion de la actividad</li>
+            </ul>            
+          </li>          
+        </ul>        
+    </div>    
     <div id="divProceso">
       <div class="form-group col-md-12">    
         <label for="" class="control-label">Proceso</label>
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" name="proceso" id="proceso">
             <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-flat" onclick="mostrarDivActividad(true)">Agregar</button>
+              <button type="button" class="btn btn-info btn-flat" onclick="insertProceso()">Agregar</button>
             </span>
         </div>
       </div>
     </div>
-
+                    <div class="text-center" id="divLoadingStep3" style="display: none">
+                      <img src="/admin/img/loading.gif" width="10%"> 
+                      <p class="login-box-msg">Agregando proceso a tu proyecto</p>   
+                      <br><br><br><br>
+                    </div>   
+                    <div class="text-center" id="divMensajeSuccessStep3" style="display: none">
+                      <i class="fa fa-check-circle-o fa-5x" style="color:#5BC0DE"></i>
+                      <h4 class="login-box-msg">El proceso se ha registrado exitosamente.</h4>   
+                      <p class="login-box-msg">Ahora registra las actividades necesarias.</p>
+                      <br><br><br><br>
+                    </div>                      
     <div id="divActividad" hidden="">
       <div class="form-group col-md-12"> 
-        <h3>Actividad para el proceso:<span id="nombreProceso"></span> </h3>
+          <div class="alert bg-aqua-active alert-dismissible text-center">
+          <h4>
+          <i class="icon fa fa-list-ol"></i>
+          Actividad para el proceso: <span id="nombreProceso" style="text-transform: uppercase;"></span>
+          </h4>
+          </div>      
       <!-- ACTIVIDAD -->
         <div class="form-group col-md-6">    
           <label for="" class="control-label">Actividad</label>
@@ -225,7 +295,7 @@
             <textarea type="text" class="form-control" id="descripcion_actividad" name="descripcion_actividad" placeholder="Descripción completa de la actividad"></textarea> <br> 
         </div>
 
-        <div class="form-group col-md-12" style="width:30%; margin-left: 30%;margin-top:1%">
+        <div class="form-group col-md-12" style="width:30%; margin-left: 30%;">
           <button type="button" class="btn btn-block btn-primary btn-sm" onclick="agregarContenido()">Registrar actividad</button>
         </div>
     </div>   
@@ -238,7 +308,7 @@
   </div>
 
 
-                <section class="content">     
+                <section class="content" hidden="" id="divProcesosAccordion">     
                   <!-- START ACCORDION -->
                     <div class="row">
                       <div class="col-md-12" >
@@ -260,16 +330,10 @@
                   <!-- END ACCORDION -->  
                 </section>
               </div>
-                <ul class="list-inline pull-right">
-                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                    <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                    <br><br>
+                <ul class="list-inline pull-right"  >
+                    <li><button type="button" class="btn btn-default prev-step" style="display: none" id="buttonRegresar1">Regresar</button></li>                  
+                    <br><br><br>
                 </ul>
-            </div>
-            <div class="tab-pane" role="tabpanel" id="complete">
-                <h3>Complete</h3>
-                <p>You have successfully completed all steps.</p>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -289,200 +353,37 @@
 
 <script src="js/bootstrapValidator.min.js"></script>
 
+<script src="admin/js/proyecto_cliente/step3.js"></script>
+<script src="admin/js/proyecto_cliente/step1.js"></script>
+<script src="admin/js/proyecto_cliente/myValidator.js"></script>
+
 <script type="text/javascript">
 
-      $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-        checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat-green'
-      });
-     var arrayHab='';
-     var arrayHerr='';
-     function addItem(div,inputGet,inputSet,type){  
-      if($(inputGet).val()!=''){
-        $(div).append('<small class="label pull-left bg-yellow" style="margin-right: 5px;">'+$(inputGet).val()+'</small>');   
-        if (type=='Habilidades') {
-          arrayHab+= $(inputGet).val()+',';
-          $(inputSet).val(arrayHab);
-        } else{
-          arrayHerr+= $(inputGet).val()+',';
-          $(inputSet).val(arrayHerr);        
+    $("#filesDrop").dropzone({
+        url: 'https://apiwebfreelance-em645jn.c9users.io/public/proyectos/uploadFile',
+        addRemoveLinks: true,
+        dictRemoveLinks: "Borrar archivo",
+        init: function() {
+            this.on("success", function(file) {
+            });
+            this.on("removedfile", function(file) {
+                $.ajax({
+                    type: "POST",
+                    url: 'https://apiwebfreelance-em645jn.c9users.io/public/proyectos/deletedFile',
+                    data: {'name':file.name},
+                    success: function (data) {
+                    }
+                });                
+            });
         }
-        
-        $(inputGet).val('');
-      }
-     } 
-  $(function () {
-         $("#cantidad_plazo").ionRangeSlider({
-        min: 1,
-        max: 31,
-        type: 'single',
-        step: 1,
-        postfix: "",
-        prettify: false,
-        hasGrid: true
-      });
-   });    
+    });
 
-
-   $('#formularioProyecto').bootstrapValidator({
-
-     
-     fields: {
-   
-       titulo: {
-   
-         validators: {
-   
-           notEmpty: {
-   
-             message: 'El título es requerido.'
-   
-           }
-   
-         }
-   
-       },descripcion: {
-   
-         validators: {
-   
-           notEmpty: {
-   
-             message: 'La descripción es requerida.'
-   
-           }
-   
-         }
-   
-       },informacion_adicional: {
-   
-         validators: {
-   
-           notEmpty: {
-   
-             message: 'La información adicional es requerida'
-   
-           }
-   
-         }
-   
-       },select_plazo: {
-   
-         validators: {
-   
-           notEmpty: {
-   
-             message: 'Seleccione un plazo'
-   
-           }
-   
-         }
-   
-       }
-   
-     }
-   
-  });   
-
-     $('#formularioProyecto').on('status.field.bv', function(e, data) {
-          formIsValid = true;
-          $('.MiValidador',$(this)).each( function() {
-                formIsValid = formIsValid && $(this).hasClass('has-success');
-          });
-            
-          if($("#habilidades").val()=="" || $("#herramientas").val()==""){
-                formIsValid = formIsValid && false;
-          }else{
-            
-            $( ".divHabilidadesForm" ).addClass( "has-success" );
-            $( ".divHerramientasForm" ).addClass( "has-success" );
-          }
-
-          if(formIsValid) {
-            $('#buttonSave1').prop("disabled", false);
-
-          } else {
-            $('#buttonSave1').prop("disabled", true);
-          }
-      });
-
-
-  $("#filesDrop").dropzone({
-      url: "my-upload-url",
-  });   
+ 
 </script>
 
 <script type="text/javascript">
 //script de step 3
-var contTab = 0;
-function mostrarDivActividad(ul){
 
-$("#divActividad").show();
-$("#divProceso").hide();
-$("#divBotones").hide();
-$("#nombreProceso").empty();
-$("#nombreProceso").append(  $("#proceso").val()  );
-if (ul==true) {agregarUl($("#proceso").val());}
-
-}
-
-function mostrarDivProcesos(){
-$("#divProceso").show();
-$("#divBotones").hide();
-$("#proceso").val("");
-}
-function registrarActividad(){
-  var nombreProceso = $("#proceso").val();
-  agregarDiv();
-}
-
-function agregarUl(nombreProceso){
-    contTab = contTab+1;
-    agregarDiv(nombreProceso,contTab);
- }   
-
- function setValueProceso(value){
-   $('#proceso').val("");
-   $('#proceso').val(value.replace(/\s/g, ''));
- }
-
-
- function agregarDiv (nombreProceso,contTab) {
-  var div1 = '<div class="panel box box-primary" id="tab_'+contTab +'">'; 
-  var div2 = '<div class="box-header with-border" onclick="setContent($(this))" data-toggle="collapse"  data-parent="#accordion" href="#collapse'+contTab +'">';
-  var h4  = '<h4 class="box-title">';
-  var titulo = '<a  >'+nombreProceso+'</a>';
-  var h4Cierre = '</h4>';
-  var div3 = '<div id="collapse'+contTab +'" class="panel-collapse collapse">';
-  var div4 = '<div class="box-body">';
-  var divCierre = '</div>';
-  var tabla = '<table class="table table-bordered" id="'+ nombreProceso.replace(/\s/g, '') +'" >';
-  var tr = '<tr>';
-  var th1 = '<th style="width: 10px">#</th>';
-  var th2 = '<th>Actividad</th>';
-  var th3 = '<th>Actor</th>';
-  var th4 = '<th>Descripción</th>';
-  var th5 = '<th>Acciones</th>';
-  var trCierre = '</tr>';
-  var trTitulos = tr+th1+th2+th3+th4+th5+trCierre;
-  var tablaCierre = '</table>';
-  var contenidoTabla = tabla+trTitulos+tablaCierre;
-  var contenido = div1+div2+h4+titulo+h4Cierre+div3+div4+divCierre+contenidoTabla+divCierre+divCierre;
-  $("#accordion").append(contenido);
- }
-
- function agregarContenido () {
-  var tr = '<tr>';
-  var td1 = '<td>1.</td>';
-  var td2 = '<td>'+ $("#actividad").val() +'</td>';
-  var td3 = ' <td>'+ $("#actor").val()+'</td>';
-  var td4 = '<td>'+ $("#descripcion_actividad").val()+'</td>';
-  var td5 = ' <td></td>';
-  var trCierre = '</tr>';
-  var contenido = tr+td1+td2+td3+td4+td5+trCierre;
-  $("#"+$("#proceso").val().replace(/\s/g, '')).append(contenido);
-  $("#divActividad").hide();
-  $("#divBotones").show();
- }
 
 
 //  function getEventTarget(e) {
@@ -500,5 +401,6 @@ function agregarUl(nombreProceso){
 function setContent(t){
    setValueProceso(t.find("a").text());
 }
+
 
 </script>
